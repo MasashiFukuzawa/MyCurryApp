@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  get '/', to: 'application#test'
+  root 'users#home'
+  get '/about', to: 'users#about'
+  get '/help', to: 'users#help'
+  get '/contact', to: 'users#contact'
 end

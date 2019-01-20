@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class StaticPagesController < ApplicationController
   def home
   end
 

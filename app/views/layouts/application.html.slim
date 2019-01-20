@@ -1,0 +1,18 @@
+doctype html
+html lang="ja"
+  head
+    title = full_title(yield(:title))
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.ico'
+  body
+    = render 'layouts/header'
+    main
+      - flash.each do |message_type, message|
+        div class="alert alert-#{message_type} text-center" = message
+      = yield
+      = render 'layouts/footer'
+      .p-5.bg-light
+        = debug(params) if Rails.env.development?

@@ -1,0 +1,25 @@
+header.py-2
+  = link_to root_url do
+    = image_tag("top-image", class: "mb-2 w-25 mx-auto d-block")
+  nav.navbar.navbar-dark.bg-dark.navbar-expand-md.sticky-top
+    .container
+      = link_to "Spiceful days", root_url, class: "navbar-brand" 
+      button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbar-content" 
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbar-content
+        ul.navbar-nav.mr-auto
+          li.navbar-item = link_to "スパイスカレーとは？", about_url, class: "nav-link"
+          li.navbar-item = link_to "店舗一覧", "#", class: "nav-link"
+          li.navbar-item = link_to "いいね！したお店", "#", class: "nav-link"
+          li.navbar-item = link_to "新規登録", "#", class: "nav-link"
+          li.navbar-item = link_to "ログイン", "#", class: "nav-link"
+          li.navbar-item.dropdown
+            = link_to "アカウント", '#', 'data-toggle': 'dropdown', class: "nav-link dropdown-toggle"
+            .dropdown-menu
+              = link_to "マイページ", "#", class: "dropdown-item"
+              = link_to "設定", "#", class: "dropdown-item"
+              = link_to "ログアウト", "#", class: "dropdown-item"
+        .text-center
+          = form_tag("#", :method => 'get') do
+            = text_field_tag :search
+            = submit_tag '検索'

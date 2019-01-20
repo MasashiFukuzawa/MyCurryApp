@@ -1,0 +1,55 @@
+nav
+  ol.breadcrumb.container
+    li.breadcrumb-item = link_to "ホーム", root_url
+    li.breadcrumb-item.active お問い合わせ
+.container
+  h2 お問い合わせ
+  p サイト管理者へのお問い合わせは、こちらのフォームをご利用ください。
+/ 余裕のある時に作成
+/ .py-3
+/   .container
+/     h3.mb-3 お問い合わせフォーム
+/     = form_tag
+/       .form-group.row
+/         label.col-md-3.col-form-label for="name"
+/           お名前
+/           span.badge.badge-warning 必須
+/         .col-md-9
+/           input#name.form-control type="text" required
+/         .form-group.row
+/           label.col-md-3.col-form-label for="email"
+/             メールアドレス
+/             span.badge.badge-warning 必須
+/           .col-md-9"
+/             input#email.form-control type="email" required
+/         fieldset.form-group
+/           .row
+/             legend.col-form-label.col-md-3 Mr. M COFFEEを知ったきっかけ
+/             .col-md-9
+/               .form-check.form-check-inline
+/                 input#radio1.form-check-input type="radio" name="questionnaire" value="answer1"
+/                 label.form-check-label" for="radio1" 口コミ
+/               .form-check form-check-inline"
+/                 input#radio2.form-check-input type="radio" name="questionnaire" value="answer2"
+/                 label#radio3.form-check-label for="radio2" 検索エンジン
+/               .form-check form-check-inline"
+/                 input.form-check-input" type="radio" name="questionnaire" value="answer3"
+/                 label.form-check-label" for="radio3" 検索エンジン
+/         .form-group.row
+/           label.col-md-3.col-form-label for="category"
+/             お問い合わせ種類
+/             span.badge.badge-warning 必須
+/           .col-md-9
+/             select#category.form-control name="category"
+/               option value="category1" ご予約について
+/               option value="category1" 委託販売について
+/               option value="category1" その他のお問い合わせ
+/         .form-group.row
+/           label.col-md-3.col-form-label for="message"
+/             お問い合わせ内容
+/             span.badge.badge-warning 必須
+/           .col-md-9
+/             textarea#message.form-control rows="8" name="message"
+/         .form-group.row.justify-content-end
+/           .col-md-9
+/             button.btn.btn-primary type="submit" 確認する

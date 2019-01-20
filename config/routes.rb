@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help'
   get '/contact', to: 'static_pages#contact'
   get '/concept', to: 'static_pages#concept'
+  resources :shops, only: [:index, :show]
 end

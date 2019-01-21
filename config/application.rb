@@ -23,5 +23,11 @@ module MyCurryApp
         helper_specs: false,
         routing_specs: false
     end
+
+    # 各APIのベースURL
+    config.twitter_base_url = 'https://twitter.com'
+    config.facebook_base_url = 'https://www.facebook.com'
+    config.tabelog_base_url = 'https://tabelog.com'
+    config.google_map_base_url = 'https://www.google.com/maps'
   end
 end

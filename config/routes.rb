@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get '/about', to: 'static_pages#about'
-  get '/help', to: 'static_pages#help'
-  get '/contact', to: 'static_pages#contact'
-  get '/concept', to: 'static_pages#concept'
+  %w(about help contact concept).each do |path|
+    get path, to: "static_pages##{path}"
+  end
   resources :shops, only: [:index, :show]
 end

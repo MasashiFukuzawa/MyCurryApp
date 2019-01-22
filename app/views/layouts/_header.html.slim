@@ -15,7 +15,7 @@ header.py-2
             li.navbar-item.dropdown
               = link_to "アカウント", '#', 'data-toggle': 'dropdown', class: "nav-link dropdown-toggle"
               .dropdown-menu
-                = link_to "マイページ", "#", class: "dropdown-item"
+                = link_to "マイページ", user_url(current_user), class: "dropdown-item"
                 = link_to "設定", edit_user_registration_path, class: "dropdown-item"
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item"
           - else

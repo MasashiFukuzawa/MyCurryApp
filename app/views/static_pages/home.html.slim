@@ -35,15 +35,9 @@
       .col-md-2
         h5 お知らせ
       .col-md-10
-        dl.row
-          dt.col-md-3 2019年2月3日
-          dd.col-md-9 ポートフォリオ完成しました！
-          dt.col-md-3 2019年1月31日
-          dd.col-md-9 細かい修正中です。完成までもうしばらくお待ち下さい。
-          dt.col-md-3 2019年1月20日
-          dd.col-md-9 Spiceful daysの制作を開始しました。
+        = render 'news'
 .container
-  = link_to "全ての店舗を見る", "#"
+  = link_to "全ての店舗を見る", shops_url
   .row.my-3.mx-3
     .col-md-4
       .card.mb-3
@@ -63,3 +57,11 @@
           = image_tag("kyuyamutei", class: "img-fluid mx-auto d-block", alt: "いいね！の多いお店")
         .card-body.d-flex.justify-content-between
           h5.card-title = link_to "旧ヤム邸", "#", class: "text-dark"
+    - @shops.each do |shop|
+      .col-md-4.mb-3
+        .card.mb-3
+          = link_to shop_url(shop) do
+            = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
+          .card-body.d-flex.justify-content-between
+            h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
+    = paginate @shops, theme: 'twitter-bootstrap-4'

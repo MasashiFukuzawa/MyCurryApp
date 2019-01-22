@@ -6,27 +6,24 @@
         tbody
           tr
             th.text-center　店名
-            td　定食堂 金剛石
+            td　#{@shop.name}
           tr
             th.text-center　住所
-            td　大阪府大阪市中央区瓦屋町1-8-25 ハイツ松屋町 1F
+            td　#{@shop.address}
           tr
             th.text-center　電話番号
-            td　06-7174-2578
+            td　#{@shop.phone}
           tr
             th.text-center　URL
             td = render 'shop_url'
           tr
             th.text-center 営業時間
-            td
-              p.ml-3.mb-1 木〜月：11:30～14:00(L.O.)、18:30～21:00(L.O.)
-              p.ml-3.mb-1 火：11:30〜16:00（L.O)、夜営業無し
-              p.ml-3.mb-0 日曜営業
+            td = simple_format @shop.business_hour, class: "ml-3 mb-0"
           tr
             th.text-center　定休日
-            td　水曜日
+            td.pl-4 #{@shop.holiday}
           tr
             th.text-center アクセス
             td.embeded-responsive.embeded-responsive-4by3
-              p.ml-3 松屋町駅から徒歩4分（350m）、駐車場なし
+              = simple_format @shop.access, class: "ml-3"
               = render 'google_map'

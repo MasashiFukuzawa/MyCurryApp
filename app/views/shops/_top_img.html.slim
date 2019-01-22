@@ -1,20 +1,16 @@
 .container.my-3
-  h1 定食堂 金剛石
+  h1 #{@shop.name} （いいね！ X件）
   #top-wrapper.bg-dark.my-3
     #main_visual.carousel.slide data-ride="carousel"
       .carousel-inner
         .carousel-item.active
-          = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
+          = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: @shop.name)
         .carousel-item
-          = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
+          = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: @shop.name)
         .carousel-item
-          = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
+          = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: @shop.name)
         .carousel-item
-          = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
+          = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: @shop.name)
         a.carousel-control-prev href="#main_visual" data-slide="prev"
           span.carousel-control-prev-icon
         a.carousel-control-next href="#main_visual" data-slide="next"

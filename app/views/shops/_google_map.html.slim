@@ -1,1 +1,2 @@
-iframe src="#{Rails.application.config.google_map_base_url}/embed?pb=!1m18!1m12!1m3!1d3281.281218887639!2d135.51015501549085!3d34.67285129221635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e738ed2ca30b%3A0xb6f8812bc6ad0ec!2z5a6a6aOf5aCCIOmHkeWJm-efsw!5e0!3m2!1sja!2sjp!4v1547992275505" width="600" height="450" frameborder="0" style="border:0" allowfullscreen
+- if @shop.google_map_url
+  iframe src="#{Rails.application.config.google_map_base_url}#{@shop.google_map_url}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen

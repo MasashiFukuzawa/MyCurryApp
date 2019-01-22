@@ -1,2 +1,11 @@
-h1 Shops#index
-p Find me in app/views/shops/index.html.slim
+.container
+  h1 店舗一覧
+  .row.my-3.mx-3
+    - @shops.each do |shop|
+      .col-md-4.mb-3
+        .card.mb-3
+          = link_to shop_url(shop) do
+            = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
+          .card-body.d-flex.justify-content-between
+            h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
+    = paginate @shops, theme: 'twitter-bootstrap-4'

@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @shops = Shop.page(params[:id]).per(6)
   end
 
   def about

@@ -10,6 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_01_21_075414) do
+
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "image"
+    t.string "address"
+    t.string "area"
+    t.string "station"
+    t.string "url"
+    t.string "twitter_url"
+    t.string "facebook_url"
+    t.string "tabelog_url"
+    t.string "google_map_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "business_hour"
+    t.string "holiday"
+    t.text "access"
+  end
 
 end

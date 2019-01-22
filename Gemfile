@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
-gem 'email_validator'
+gem 'devise'
+gem 'omniauth-twitter'
 gem 'faker'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'

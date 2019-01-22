@@ -7,5 +7,5 @@ class Shop < ApplicationRecord
   validates :address, presence: {message: 'は必須です。'},
                       length: {maximum: 100, message: '%{value}は100文字以内でご記入下さい。'}
   validates :area, :station, presence: {message: 'は必須です。'},
-                             length: {maximum: 10, message: '%{value}は20文字以内でご記入下さい。'}
+                             length: {maximum: 20, message: '%{value}は20文字以内でご記入下さい。'}
 end

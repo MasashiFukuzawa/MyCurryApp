@@ -10,16 +10,18 @@ header.py-2
         ul.navbar-nav.mr-auto
           li.navbar-item = link_to "スパイスカレーとは？", about_url, class: "nav-link"
           li.navbar-item = link_to "店舗一覧", shops_path, class: "nav-link"
-          li.navbar-item = link_to "いいね！した店舗", "#", class: "nav-link"
-          li.navbar-item = link_to "新規登録", "#", class: "nav-link"
-          li.navbar-item = link_to "ログイン", "#", class: "nav-link"
-          li.navbar-item.dropdown
-            = link_to "アカウント", '#', 'data-toggle': 'dropdown', class: "nav-link dropdown-toggle"
-            .dropdown-menu
-              = link_to "マイページ", "#", class: "dropdown-item"
-              = link_to "設定", "#", class: "dropdown-item"
-              = link_to "ログアウト", "#", class: "dropdown-item"
-        .text-center
-          = form_tag("#", :method => 'get') do
-            = text_field_tag :search
-            = submit_tag '検索'
+          - if user_signed_in?
+            li.navbar-item = link_to "いいね！した店舗", "#", class: "nav-link"
+            li.navbar-item.dropdown
+              = link_to "アカウント", '#', 'data-toggle': 'dropdown', class: "nav-link dropdown-toggle"
+              .dropdown-menu
+                = link_to "マイページ", "#", class: "dropdown-item"
+                = link_to "設定", edit_user_registration_path, class: "dropdown-item"
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item"
+          - else
+            ul.navbar-nav.mr-auto
+              li.navbar-item = link_to "新規登録", new_user_registration_path, class: "nav-link"
+              li.navbar-item = link_to "ログイン", new_user_session_path, class: "nav-link"
+        = form_tag("#", :method => 'get') do
+          = text_field_tag :search
+          = submit_tag '検索'

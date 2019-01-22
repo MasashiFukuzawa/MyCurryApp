@@ -13,7 +13,7 @@ Shop.create!(name: "定食堂 金剛石",
 
 99.times do |n|
   name = Faker::Food.spice
-  phone = "0001234000#{n+1}"
+  phone = "000123400#{n+1}"
   address = Faker::Address.full_address
   area = Faker::Address.state
   station = "#{Faker::Address.street_name}駅"

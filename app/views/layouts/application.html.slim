@@ -9,6 +9,8 @@ html lang="ja"
     = favicon_link_tag 'favicon.ico'
   body
     = render 'layouts/header'
+    p.notice = notice
+    p.alert = alert
     main
       - flash.each do |message_type, message|
         div class="alert alert-#{message_type} text-center" = message

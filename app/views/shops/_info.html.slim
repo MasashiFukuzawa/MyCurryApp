@@ -5,22 +5,28 @@
       table.table.table-hover
         tbody
           tr
-            th.text-center　店名
+            th.text-center 店名
             td　#{@shop.name}
           tr
-            th.text-center　住所
+            th.text-center 住所
             td　#{@shop.address}
           tr
-            th.text-center　電話番号
-            td　#{@shop.phone}
+            th.text-center エリア
+            td　#{@shop.area}
           tr
-            th.text-center　URL
+            th.text-center 最寄り駅
+            td　#{@shop.station}
+          tr
+            th.text-center 電話番号
+            td.pl-4 = link_to @shop.phone, "tel:#{@shop.phone}"
+          tr
+            th.text-center URL
             td = render 'shop_url'
           tr
             th.text-center 営業時間
             td = simple_format @shop.business_hour, class: "ml-3 mb-0"
           tr
-            th.text-center　定休日
+            th.text-center 定休日
             td.pl-4 #{@shop.holiday}
           tr
             th.text-center アクセス

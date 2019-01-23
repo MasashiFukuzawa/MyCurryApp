@@ -8,3 +8,15 @@
   font-style: italic;
   font-weight: bold;
 }
+
+// フォーム
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+}
+input {
+  height: auto !important;
+}
+#user_remember_me {
+  width: 25px;
+}

@@ -1,0 +1,22 @@
+h2.mt-3.mb-2.text-center ログイン
+.row
+  .col-md-6.col-md-offset-3.mx-auto.d-block
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field.mb-3
+        = f.label :username
+        = f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control"
+      .field.mb-3
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+      .field
+        = f.label :password
+        = f.password_field :password, autocomplete: "current-password", class: "form-control mb-3"
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+          p.mb-0 = link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name)
+      .actions.mb-3
+        = f.submit "ログイン", class: "btn btn-info btn-lg mt-3 w-100"
+    .mb-4.text-center
+      - resource_class.omniauth_providers.each do |provider|
+        = link_to "#{OmniAuth::Utils.camelize(provider)}アカウントでログイン", omniauth_authorize_path(resource_name, provider)

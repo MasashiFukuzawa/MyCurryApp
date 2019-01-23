@@ -64,8 +64,9 @@ ja:
   activerecord:
     attributes:
       user:
-        username: ユーザーネーム
+        name: ユーザー名
         password: パスワード
         password_confirmation: パスワード (確認)
         email: メールアドレス
         remember_me: 次回から自動的にログイン
+        description: 自己紹介文

@@ -10,9 +10,13 @@ gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails', '~> 4.3'
-gem "shrine", "~> 2.0"
+gem "shrine"
+gem "aws-sdk-s3"
+gem 'image_processing'
+gem 'mini_magick'
 gem 'devise'
 gem 'slim-rails'
+gem 'rails-i18n'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

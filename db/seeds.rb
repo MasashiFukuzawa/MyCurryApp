@@ -37,4 +37,4 @@ User.create!(name:  "カレー大好きまず子さん",
   email: email,
   password: password,
   password_confirmation: password)
-end              
+end

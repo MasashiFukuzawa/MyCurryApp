@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_053946) do
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "phone"
-    t.string "image"
+    t.text "image_data"
     t.string "address"
     t.string "area"
     t.string "station"
@@ -42,9 +42,10 @@ ActiveRecord::Schema.define(version: 2019_01_22_053946) do
     t.string "provider"
     t.string "uid"
     t.string "name"
-    t.string "image"
+    t.string "twitter_image"
     t.string "location"
     t.text "description"
+    t.text "image_data"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

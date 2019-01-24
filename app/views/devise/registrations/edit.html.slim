@@ -15,12 +15,15 @@ h2.mt-3.mb-2.text-center ユーザー情報の編集
           span.badge.text-danger パスワードを忘れたときのために、利用可能なメールアドレスにご変更下さい。
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
       .field.mb-3
-        p プロフィール画像
+        = f.label :image_data
         .mb-3
-          - if current_user.image
-            = image_tag(current_user.image, size: '200x200')
+          - if current_user.image_data
+            = image_tag(current_user.image_url, size: '200x200')
+          - elsif current_user.twitter_image
+            = image_tag(current_user.twitter_image, size: '200x200')
           - else
             = image_tag("profile", size: '200x200')
+        = f.hidden_field :image, value: current_user.cached_image_data
         = f.file_field :image, accept: 'image/jpg, image/gif, image/png', class: "rounded"
       .field.mb-3
         = f.label :description

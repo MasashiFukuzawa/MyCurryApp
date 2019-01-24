@@ -14,9 +14,11 @@ h2.mt-3.mb-5.text-center ユーザー情報
       tr
         th.w-25 プロフィール画像
         td.w-50
-          - if current_user.image
-            = image_tag(current_user.image, size: '200x200', class: "my-3")
-          - else
+          - if current_user.image_data
+            = image_tag(current_user.image_url, size: '200x200', class: "my-3")
+          - elsif current_user.twitter_image
+            = image_tag(current_user.twitter_image, size: '200x200', class: "my-3")
+          - else 
             = image_tag("profile", size: '200x200', class: "my-3")
       tr
         th.w-25 自己紹介文

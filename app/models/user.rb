@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include ImageUploader[:image]
+
+  has_one :profile
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -10,11 +12,11 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.nickname
-      user.twitter_image = auth.info.image
-      user.location = auth.info.location
-      user.description = auth.info.description
       user.email = "#{auth.info.nickname}-#{auth.uid}@example.com"
       user.password = "1111"
+      user.profile.twitter_image = auth.info.image
+      user.profile.location = auth.info.location
+      user.profile.description = auth.info.description
     end
   end
 end

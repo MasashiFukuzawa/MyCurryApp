@@ -11,8 +11,7 @@ h2.mt-3.mb-2.text-center 新規登録
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
       .field.mb-3
         = f.label :password
-        - if @minimum_password_length
-          |  (#{@minimum_password_length}文字以上)
+        span （#{@minimum_password_length}文字以上）
         = f.password_field :password, autocomplete: "new-password", class: "form-control"
       .field.mb-3
         = f.label :password_confirmation

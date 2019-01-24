@@ -3,7 +3,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
     create_table :shops do |t|
       t.string :name
       t.string :phone
-      t.text :image_data
+      t.string :image_data
       t.string :address
       t.string :area
       t.string :station

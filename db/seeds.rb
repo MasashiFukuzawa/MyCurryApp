@@ -12,16 +12,11 @@ Shop.create!(name: "定食堂 金剛石",
             access: "松屋町駅から徒歩4分（350m）、駐車場なし")
             
 99.times do |n|
-  name = Faker::Food.spice
-  phone = "000123400#{n+1}"
-  address = Faker::Address.full_address
-  area = Faker::Address.state
-  station = "#{Faker::Address.street_name}駅"
-  Shop.create!(name: name,
-  phone: phone,
-  address: address,
-  area: area,
-  station: station)
+  Shop.create!(name: Faker::Food.spice,
+  phone: "000123400#{n+1}",
+  address: Faker::Address.full_address,
+  area: Faker::Address.state,
+  station: "#{Faker::Address.street_name}駅")
 end
 
 User.create!(name:  "カレー大好きまず子さん",
@@ -30,11 +25,8 @@ User.create!(name:  "カレー大好きまず子さん",
             password_confirmation: "foobar")
             
 99.times do |n|
-  name = Faker::DragonBall.character
-  email = "example-#{n+1}@example.com"
-  password = "password"
-  User.create!(name: name,
-  email: email,
-  password: password,
-  password_confirmation: password)
+  User.create!(name: Faker::DragonBall.character,
+  email: "example-#{n+1}@example.com",
+  password: "password",
+  password_confirmation: "password")
 end

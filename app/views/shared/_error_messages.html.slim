@@ -2,5 +2,5 @@
 	.mb-4
 		.alert.alert-danger "#{object.errors.count}つのエラーがあります"
 		ul
-		- object.errors.full_messages.each do |msg|
-			li.text-danger = msg
+			- object.errors.full_messages.each do |msg|
+				li.text-danger = msg

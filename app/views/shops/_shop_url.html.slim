@@ -1,8 +1,8 @@
 - if @shop.url
-  p.ml-3.mb-1 = link_to "店舗ホームページ", "#{@shop.url}", target: "blank"
+  p.mb-1 = link_to "店舗ホームページ", "#{@shop.url}", target: "blank"
 - if @shop.twitter_url
-  p.ml-3.mb-1 = link_to "Twitter", "#{Rails.application.config.twitter_base_url}#{@shop.twitter_url}", target: "blank"
+  p.mb-1 = link_to "Twitter", "#{Rails.application.config.twitter_base_url}#{@shop.twitter_url}", target: "blank"
 - if @shop.facebook_url
-  p.ml-3.mb-1 = link_to "Facebook", "#{Rails.application.config.facebook_base_url}#{@shop.facebook_url}", target: "blank"
+  p.mb-1 = link_to "Facebook", "#{Rails.application.config.facebook_base_url}#{@shop.facebook_url}", target: "blank"
 - if @shop.tabelog_url
-  p.ml-3.mb-0 = link_to "食べログ", "#{Rails.application.config.tabelog_base_url}#{@shop.tabelog_url}", target: "blank"
+  p.mb-0 = link_to "食べログ", "#{Rails.application.config.tabelog_base_url}#{@shop.tabelog_url}", target: "blank"

@@ -3,10 +3,14 @@ class User < ApplicationRecord
 
   has_one :profile
   accepts_nested_attributes_for :profile
+  has_many :comments
+  has_many :shop, through: :comments
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :name, presence: true, length: {maximum: 50}
+  validates :email, presence: true, uniqueness: {case_sensitive: false}
+  validates :password, presence: true, length: {minimum: 4}, allow_nil: true
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

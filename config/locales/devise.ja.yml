@@ -71,3 +71,5 @@ ja:
         remember_me: 次回から自動的にログイン
         description: 自己紹介文
         image_data: 画像
+        title: タイトル
+        body: コメント

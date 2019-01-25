@@ -5,30 +5,30 @@
       tbody
         tr
           th.text-center 店名
-          td　#{@shop.name}
+          td = @shop.name
         tr
           th.text-center 住所
-          td　#{@shop.address}
+          td = @shop.address
         tr
           th.text-center エリア
-          td　#{@shop.area}
+          td = @shop.area
         tr
           th.text-center 最寄り駅
-          td　#{@shop.station}
+          td = @shop.station
         tr
           th.text-center 電話番号
-          td.pl-4 = link_to @shop.phone, "tel:#{@shop.phone}"
+          td = link_to @shop.phone, "tel:#{@shop.phone}"
         tr
           th.text-center URL
           td = render 'shop_url'
         tr
           th.text-center 営業時間
-          td = simple_format @shop.business_hour, class: "ml-3 mb-0"
+          td = simple_format @shop.business_hour, class: "mb-0"
         tr
           th.text-center 定休日
-          td.pl-4 #{@shop.holiday}
+          td = @shop.holiday
         tr
           th.text-center アクセス
           td.embeded-responsive.embeded-responsive-4by3
-            = simple_format @shop.access, class: "ml-3"
+            = simple_format @shop.access, class: ""
             = render 'google_map'

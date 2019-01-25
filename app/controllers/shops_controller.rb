@@ -1,6 +1,9 @@
 class ShopsController < ApplicationController
+
+  MAX_PER_PAGE = 30
+  
   def index
-    @shops = Shop.page(params[:page]).per(30)
+    @shops = Shop.page(params[:page]).per(MAX_PER_PAGE)
   end
 
   def show

@@ -3,6 +3,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def show
+    @comments = Comment.shop.where(params[:id])
+  end
+
   def create
     
   end
@@ -13,6 +17,6 @@ class CommentsController < ApplicationController
   private
 
     def comments_params
-      params.require(:comment).permit(:title, :body, :image)
+      params.require(:comment).permit(:title, :body, :image_data)
     end
 end

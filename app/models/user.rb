@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   include ImageUploader[:image]
 
-  has_one :profile
-  accepts_nested_attributes_for :profile
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :shop, through: :comments
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
@@ -19,9 +17,9 @@ class User < ApplicationRecord
       user.name = auth.info.nickname
       user.email = "#{auth.info.nickname}-#{auth.uid}@example.com"
       user.password = "1111"
-      user.build_profile(twitter_image: auth.info.image,
-                        location: auth.info.location,
-                        description: auth.info.description)
+      user.twitter_image = auth.info.image
+      user.location = auth.info.location
+      user.description = auth.info.description
     end
   end
 end

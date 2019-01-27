@@ -14,14 +14,14 @@ h2.mt-3.mb-5.text-center ユーザー情報
       tr
         th.w-25 プロフィール画像
         td.w-50
-          - if current_user.profile.image_data
-            = image_tag(current_user.profile.image_url, size: '200x200', class: "my-3")
-          - elsif current_user.profile.twitter_image
-            = image_tag(current_user.profile.twitter_image, size: '200x200', class: "my-3")
+          - if current_user.image_data
+            = image_tag(current_user.image[:original].url, size: '200x200', class: "my-3")
+          - elsif current_user.twitter_image
+            = image_tag(current_user.twitter_image.gsub(/_normal/, ''), size: '200x200', class: "my-3")
           - else 
             = image_tag("profile", size: '200x200', class: "my-3")
       tr
         th.w-25 自己紹介文
         td.w-50
-          = simple_format(current_user.profile.description)
+          = simple_format(current_user.description)
   = link_to "ユーザー情報を編集する", edit_user_registration_path, class: "btn btn-info btn my-5 d-block mx-auto w-50"

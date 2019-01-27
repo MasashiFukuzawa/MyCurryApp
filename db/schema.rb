@@ -24,21 +24,10 @@ ActiveRecord::Schema.define(version: 2019_01_25_015244) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "twitter_image"
-    t.string "location"
-    t.text "description"
-    t.string "image_data"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "phone", null: false
-    t.string "image_data"
+    t.text "image_data"
     t.string "address", null: false
     t.string "area", null: false
     t.string "station", null: false
@@ -65,11 +54,14 @@ ActiveRecord::Schema.define(version: 2019_01_25_015244) do
     t.string "name", null: false
     t.string "provider"
     t.string "uid"
+    t.string "twitter_image"
+    t.string "location"
+    t.string "description"
+    t.text "image_data"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "shops"
   add_foreign_key "comments", "users"
-  add_foreign_key "profiles", "users"
 end

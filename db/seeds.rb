@@ -13,10 +13,10 @@ Shop.create!(name: "定食堂 金剛石",
             
 99.times do |n|
   Shop.create!(name: Faker::Food.spice,
-  phone: "000123400#{n+1}",
-  address: Faker::Address.full_address,
-  area: Faker::Address.state,
-  station: "#{Faker::Address.street_name}駅")
+              phone: "012011100#{n+1}",
+              address: Faker::Address.full_address,
+              area: Faker::Address.state,
+              station: "#{Faker::Address.street_name}駅")
 end
 
 User.create!(name:  "カレー大好きまず子さん",
@@ -26,7 +26,13 @@ User.create!(name:  "カレー大好きまず子さん",
             
 99.times do |n|
   User.create!(name: Faker::DragonBall.character,
-  email: "example-#{n+1}@example.com",
-  password: "password",
-  password_confirmation: "password")
+              email: "example-#{n+1}@example.com",
+              password: "password",
+              password_confirmation: "password")
+end
+
+Comment.create!(title:  "三丁目のカルダモン", body: "美味しすぎてカレーの概念が変わりました。")
+            
+99.times do
+  users.each {|user| user.comments.create!(title: Faker::Book.title, body: Faker::Lorem.paragraph(10))}
 end

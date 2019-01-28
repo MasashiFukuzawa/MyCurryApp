@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :shop, through: :comments
+  has_many :likes, dependent: :destroy
+  has_many :like_shops, through: :likes, source: :shop
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 

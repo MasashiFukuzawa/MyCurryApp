@@ -16,6 +16,6 @@ class ShopsController < ApplicationController
   private
 
     def shops_params
-      params.require(shops).permit(:name, :phone, :image, :address, :area, :station, :url, :twiiter_url, :facebook_url, tabelog_url, :google_map_url)
+      params.require(shop).permit(:name, :phone, :image, :address, :area, :station, :url, :twiiter_url, :facebook_url, tabelog_url, :google_map_url)
     end
 end

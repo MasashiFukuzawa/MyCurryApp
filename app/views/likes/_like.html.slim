@@ -1,0 +1,9 @@
+- if user_signed_in?
+  .text-center id="like-link-#{@shop.id}"
+    - unless @shop.like?(current_user)
+      = form_for(@shop.likes.build, remote: true) do |f|
+        = hidden_field_tag :user, current_user.id
+        = f.submit "いいね！", class: "btn btn-primary btn-lg mt-2 w-75"
+    - else 
+      = form_for(@shop.likes.find_by(user_id: current_user.id), html: {method: :delete}, remote: true) do |f| 
+        = f.submit "いいね！を取り消す", class: "btn btn-secondary btn-lg mt-2 w-75"

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def create
-    @comment = current_user.comments.build(comments_params)
+    @comment = current_user.comments.build(comment_params)
     @comment.shop_id = params[:shop_id]
     if @comment.save
       flash[:success] = "コメントが投稿されました。"
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   
   private
   
-    def comments_params
+    def comment_params
       params.require(:comment).permit(:body, :image, :shop_id)
     end
     

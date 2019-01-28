@@ -26,7 +26,11 @@ h2.mt-3.mb-5.text-center マイページ
         td.w-50 = simple_format(current_user.description)
       tr
         th.w-25 いいね！したお店
-        td.w-50 いいね！したお店はありません
+        td.w-50
+          - if @user.likes.any?
+            ol
+              - @likes.each do |like|
+                li.list-unstyled = link_to like.shop.name, shop_url(like.shop_id)
 .container.w-50.py-3.px-4
   p.font-weight-bold コメント一覧
   - if current_user.comments.any?
@@ -44,6 +48,4 @@ h2.mt-3.mb-5.text-center マイページ
               span = link_to "コメントを削除", comment, method: :delete, data: {confirm: "コメントを削除します。\n本当によろしいですか？"}
       .row.justify-content-center
           = paginate @comments, theme: 'twitter-bootstrap-4'
-  - else 
-    span 投稿したコメントはありません
   = link_to "ユーザー情報を編集する", edit_user_registration_path, class: "btn btn-info btn my-5 d-block mx-auto w-50"

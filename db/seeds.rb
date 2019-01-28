@@ -1,3 +1,4 @@
+# Shop
 Shop.create!(name: "定食堂 金剛石",
             phone: "06-7174-2578",
             address: "大阪府大阪市中央区瓦屋町1-8-25 ハイツ松屋町 1F",
@@ -20,6 +21,7 @@ Shop.create!(name: "定食堂 金剛石",
               google_map_url: Faker::Address.state)
 end
 
+# User
 User.create!(name:  "カレー大好きまず子さん",
             email: "mazuko@example.com",
             description: "毎日カレーを食べ歩いています！\nたまにインドで修行してます！",
@@ -33,6 +35,7 @@ User.create!(name:  "カレー大好きまず子さん",
               password_confirmation: "password")
 end
 
+# Comment
 User.first.comments.create!(
             body: "美味しすぎてカレーの概念が変わりました。",
             shop: Shop.find(1),
@@ -54,4 +57,17 @@ end
   Shop.find(n+2).comments.create!(
             body: Faker::ChuckNorris.fact,
             user: User.find(1))
+end
+
+# Like
+50.times do |n|
+  User.find(n+1).likes.create!(shop_id: 1)
+end
+
+30.times do |n|
+  User.find(n+1).likes.create!(shop_id: 2)
+end
+
+50.times do |n|
+  Shop.find(n+3).likes.create!(user_id: 1)
 end

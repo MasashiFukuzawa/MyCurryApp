@@ -1,13 +1,16 @@
 class ShopsController < ApplicationController
 
   MAX_PER_PAGE = 30
+  MIN_PER_PAGE = 5
   
   def index
-    @shops = Shop.page(params[:page]).per(MAX_PER_PAGE)
+    @shops = Shop.page(params[:page]).per(MAX_PER_PAGE).desc
   end
 
   def show
     @shop = Shop.find(params[:id])
+    @comments = @shop.comments.page(params[:page]).per(MIN_PER_PAGE).desc
+    @comment = current_user.comments.build if user_signed_in?
   end
 
   private

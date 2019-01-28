@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShopsController, type: :controller do
+describe ShopsController do
 
   describe "GET #index" do
     it "returns http success" do
@@ -16,5 +16,4 @@ RSpec.describe ShopsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

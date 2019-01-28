@@ -1,5 +1,6 @@
+= provide(:title, "店舗一覧")
 .container
-  h1 店舗一覧
+  h2.mt-3.mb-5.text-center 店舗一覧
   .row.my-3.mx-3
     - @shops.each do |shop|
       .col-md-4.mb-3
@@ -11,4 +12,5 @@
               = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
           .card-body.d-flex.justify-content-between
             h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
+  .row.justify-content-center
     = paginate @shops, theme: 'twitter-bootstrap-4'

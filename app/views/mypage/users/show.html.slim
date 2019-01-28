@@ -1,32 +1,35 @@
-= provide(:title, "ユーザー情報")
-h2.mt-3.mb-5.text-center ユーザー情報
+= provide(:title, "マイページ")
+h2.mt-3.mb-5.text-center マイページ
 .container.w-50
+  - if current_user.email == "#{current_user.name}-#{current_user.uid}@example.com"
+    h6.text-danger.text-center 現在のメールアドレスはTwitterログインされた方用の仮メールアドレスです。
+    h6.text-danger.text-center.mb-5 パスワードを忘れたときのために、利用可能なメールアドレスにご変更下さい。
   table.table
     tbody
       tr
         th.w-25 ユーザー名
-        td.w-50 = @user.name
+        td.w-50 = current_user.name
       tr
         th.w-25 メールアドレス
-        td.w-50 = @user.email
+        td.w-50 = current_user.email
       tr
         th.w-25 プロフィール画像
         td.w-50
-          - if @user.image_data
-            = image_tag(@user.image[:original].url, size: '200x200', class: "my-3")
-          - elsif @user.twitter_image
-            = image_tag(@user.twitter_image.gsub(/_normal/, ''), size: '200x200', class: "my-3")
+          - if current_user.image_data
+            = image_tag(current_user.image[:original].url, size: '200x200', class: "my-3")
+          - elsif current_user.twitter_image
+            = image_tag(current_user.twitter_image.gsub(/_normal/, ''), size: '200x200', class: "my-3")
           - else 
             = image_tag("profile", size: '200x200', class: "my-3")
       tr
         th.w-25 自己紹介文
-        td.w-50 = simple_format(@user.description)
+        td.w-50 = simple_format(current_user.description)
       tr
         th.w-25 いいね！したお店
         td.w-50 いいね！したお店はありません
 .container.w-50.py-3.px-4
   p.font-weight-bold コメント一覧
-  - if @user.comments.any?
+  - if current_user.comments.any?
     ol
       - @comments.each do |comment|
         li.list-unstyled.border-top.border-secondary
@@ -43,3 +46,4 @@ h2.mt-3.mb-5.text-center ユーザー情報
           = paginate @comments, theme: 'twitter-bootstrap-4'
   - else 
     span 投稿したコメントはありません
+  = link_to "ユーザー情報を編集する", edit_user_registration_path, class: "btn btn-info btn my-5 d-block mx-auto w-50"

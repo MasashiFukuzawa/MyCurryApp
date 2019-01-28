@@ -11,7 +11,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.string :twitter_url
       t.string :facebook_url
       t.string :tabelog_url
-      t.string :google_map_url
+      t.string :google_map_url, null: false
 
       t.timestamps
     end

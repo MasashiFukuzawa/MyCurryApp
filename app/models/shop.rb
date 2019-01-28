@@ -10,4 +10,5 @@ class Shop < ApplicationRecord
   validates :phone, presence: true, uniqueness: true, format: {with: PHONE_REGEX}
   validates :address, presence: true, length: {maximum: 100}
   validates :area, :station, presence: true, length: {maximum: 20}
+  validates :google_map_url, presence: true
 end

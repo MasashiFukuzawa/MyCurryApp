@@ -1,6 +1,5 @@
 = provide(:title, @shop.name)
 = render 'top_img'
-h1.text-center.d-block.mx-auto.bg-light.w-75.my-4.border.p-5 ここに投稿されたコメントが入ります。
 = render 'comments'
-= link_to "コメントを投稿する", new_comment_url, class: "btn btn-info btn-lg my-5 d-block mx-auto w-50"
+= render 'comments/new'
 = render 'info'

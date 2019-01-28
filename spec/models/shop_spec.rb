@@ -8,6 +8,7 @@ describe Shop do
     it {is_expected.to validate_presence_of :address}
     it {is_expected.to validate_presence_of :area}
     it {is_expected.to validate_presence_of :station}
+    it {is_expected.to validate_presence_of :google_map_url}
     it {validate_length_of :name}
     it {validate_length_of :address}
     it {validate_length_of :area}
@@ -32,9 +33,9 @@ describe Shop do
     end
     
     it "has unique phone number" do
-      shop1 = FactoryBot.create(:shop, phone: "0" * 10)
+      shop1 = FactoryBot.create(:shop, phone: "06-7777-2222")
       expect(shop1).to be_valid
-      shop2 = FactoryBot.build(:shop, phone: "0" * 10)
+      shop2 = FactoryBot.build(:shop, phone: "06-7777-2222")
       shop2.valid?
       expect(shop2.errors[:phone]).to include("はすでに存在します")
     end

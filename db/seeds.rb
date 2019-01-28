@@ -1,5 +1,5 @@
 Shop.create!(name: "定食堂 金剛石",
-            phone: "0671742578",
+            phone: "06-7174-2578",
             address: "大阪府大阪市中央区瓦屋町1-8-25 ハイツ松屋町 1F",
             area: "大阪",
             station: "松屋町駅",
@@ -11,16 +11,18 @@ Shop.create!(name: "定食堂 金剛石",
             holiday: "水曜日",
             access: "松屋町駅から徒歩4分（350m）、駐車場なし")
             
-99.times do |n|
+99.times do
   Shop.create!(name: Faker::Food.spice,
-              phone: "012011100#{n+1}",
+              phone: Faker::PhoneNumber.cell_phone,
               address: Faker::Address.full_address,
               area: Faker::Address.state,
-              station: "#{Faker::Address.street_name}駅")
+              station: "#{Faker::Address.street_name}駅",
+              google_map_url: Faker::Address.state)
 end
 
 User.create!(name:  "カレー大好きまず子さん",
             email: "mazuko@example.com",
+            description: "毎日カレーを食べ歩いています！\nたまにインドで修行してます！",
             password:              "foobar",
             password_confirmation: "foobar")
             
@@ -31,8 +33,25 @@ User.create!(name:  "カレー大好きまず子さん",
               password_confirmation: "password")
 end
 
-Comment.create!(title:  "三丁目のカルダモン", body: "美味しすぎてカレーの概念が変わりました。")
+User.first.comments.create!(
+            body: "美味しすぎてカレーの概念が変わりました。",
+            shop: Shop.find(1),
+            created_at: Time.zone.now)
             
-99.times do
-  users.each {|user| user.comments.create!(title: Faker::Book.title, body: Faker::Lorem.paragraph(10))}
+50.times do |n|
+  User.find(n+1).comments.create!(
+            body: Faker::ChuckNorris.fact,
+            shop: Shop.find(1))
+end
+
+30.times do |n|
+  User.find(n+1).comments.create!(
+            body: Faker::ChuckNorris.fact,
+            shop: Shop.find(2))
+end
+
+99.times do |n|
+  Shop.find(n+2).comments.create!(
+            body: Faker::ChuckNorris.fact,
+            user: User.find(1))
 end

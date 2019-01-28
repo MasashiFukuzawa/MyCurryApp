@@ -1,0 +1,19 @@
+- if @comments.any?
+  .container.mt-5
+    h4.py-4.mt-2.text-center 『#{@shop.name}』へのコメント
+    ol
+      - @comments.each do |comment|
+        li.list-unstyled.border-top.border-secondary
+          - if comment.image_data
+            = image_tag(comment.image[:medium].url, class: "img-fluid w-50 mx-auto d-block py-4")
+          h5.mt-3.ml-4.font-weight-normal = simple_format(comment.body)
+          p.mt-5.text-right
+            span Posted by 
+            = link_to comment.user.name, user_path(comment.user.id), class: "mr-2"
+            span.mr-2 |
+            span.mr-2 #{time_ago_in_words(comment.created_at)}前
+            - if comment.user == current_user
+              span.mr-2 |
+              span = link_to "コメントを削除", comment, method: :delete, data: {confirm: "コメントを削除します。\n本当によろしいですか？"}
+    .row.justify-content-center
+      = paginate @comments, theme: 'twitter-bootstrap-4'

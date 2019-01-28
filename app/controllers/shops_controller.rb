@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   MIN_PER_PAGE = 5
   
   def index
-    @shops = Shop.page(params[:page]).per(MAX_PER_PAGE).desc
+    @shops = Shop.page(params[:page]).per(MAX_PER_PAGE)
   end
 
   def show

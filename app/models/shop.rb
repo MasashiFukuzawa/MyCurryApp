@@ -18,4 +18,12 @@ class Shop < ApplicationRecord
   def like?(user)
     like_users.include?(user)
   end
+
+  def self.search(search)
+    if search
+      where(['name LIKE ? or address LIKE ? or area LIKE ? or station LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      all
+    end
+  end
 end

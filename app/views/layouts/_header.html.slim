@@ -20,7 +20,7 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-md.sticky-top
               = link_to "マイページ", mypage_user_url(current_user), class: "dropdown-item"
               = link_to "設定", edit_user_registration_url, class: "dropdown-item"
               = link_to "ログアウト", destroy_user_session_url, method: :delete, class: "dropdown-item"
-      = form_tag("#", method: :get) do
+      = form_tag shops_path, method: :get do
         .input-group
-          = text_field_tag :search, params[:search], class: "form-control"
+          = text_field_tag :search, params[:search], class: "form-control", placeholder: "キーワード"
           span.input-group-btn = submit_tag "検索", name: nil, class: "btn btn-secondary"

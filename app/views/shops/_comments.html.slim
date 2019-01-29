@@ -8,7 +8,7 @@
             = image_tag(comment.image[:medium].url, class: "img-fluid w-50 mx-auto d-block py-4")
           h5.mt-3.ml-4.font-weight-normal = simple_format(comment.body)
           p.mt-5.text-right
-            span Posted by 
+            span 投稿者：
             = link_to comment.user.name, user_path(comment.user.id), class: "mr-2"
             span.mr-2 |
             span.mr-2 #{time_ago_in_words(comment.created_at)}前

@@ -44,19 +44,22 @@ User.first.comments.create!(
 50.times do |n|
   User.find(n+1).comments.create!(
             body: Faker::ChuckNorris.fact,
-            shop: Shop.find(1))
+            shop: Shop.find(1),
+            created_at: 2.hours.ago)
 end
 
 30.times do |n|
   User.find(n+1).comments.create!(
             body: Faker::ChuckNorris.fact,
-            shop: Shop.find(2))
+            shop: Shop.find(2),
+            created_at: 5.hours.ago)
 end
 
 99.times do |n|
   Shop.find(n+2).comments.create!(
             body: Faker::ChuckNorris.fact,
-            user: User.find(1))
+            user: User.find(1),
+            created_at: 5.days.ago)
 end
 
 # Like

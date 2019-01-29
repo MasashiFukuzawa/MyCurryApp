@@ -38,25 +38,4 @@
         = render 'news'
 .container
   = link_to "全ての店舗を見る", shops_url
-  .row.my-3.mx-3
-    .col-md-4
-      .card.mb-3
-        = link_to image_tag("yosomi", class: "img-fluid mx-auto d-block", alt: "いいね！の多いお店"), "#"
-        .card-body.d-flex.justify-content-between
-          h5.card-title = link_to "よそみシーズン2", "#", class: "text-dark"
-    .col-md-4
-      .card.mb-3
-        = link_to image_tag("ganeshN", class: "img-fluid mx-auto d-block", alt: "いいね！の多いお店"), "#"
-        .card-body.d-flex.justify-content-between
-          h5.card-title = link_to "ガネーシュN", "#", class: "text-dark"
-    .col-md-4
-      .card.mb-3
-        = link_to image_tag("kyuyamutei", class: "img-fluid mx-auto d-block", alt: "いいね！の多いお店"), "#"
-        .card-body.d-flex.justify-content-between
-          h5.card-title = link_to "旧ヤム邸", "#", class: "text-dark"
-    - @shops.each do |shop|
-      .col-md-4.mb-3
-        .card.mb-3
-          = link_to image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name), shop_url(shop)
-          .card-body.d-flex.justify-content-between
-            h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
+  = render 'shops/all_shops'

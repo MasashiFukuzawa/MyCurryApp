@@ -1,3 +1,22 @@
 = provide(:title, "スパイスカレーとは？")
-h1 StaticPages#about
-p Find me in app/views/static_pages/about.html.slim
+.bg-light
+  .container.py-3
+    h2#about-title.mt-5.mb-2 スパイスカレーとは？
+    .col
+      h5.my-5 スパイスカレーの世界へようこそ！
+      h5.my-5 皆さんご存知でしょうか？
+      h5.my-5 今、スパイスカレーがアツイことを。
+      h5.my-5 日本の国民食であるカレーですが、普段家庭で口にする所謂「カレーライス」とはまた違った独特のエスニック感や味の奥深さ、バリエーションなどに熱中する人が続出し始めています。
+      h5.my-5 雑誌やレシピ本が次々に刊行され、激戦区の大阪には何と400店舗以上のスパイスカレー屋さんがあるそうです。
+      = image_tag "curry-magazine", class: "img-fluid w-25 py-4"
+      div
+        span （出典：
+        span = link_to "『究極のカレー2019 関西版』が6/29(金)に発売 関西最強のカレーが今年も決定！", "http://kansai.pia.co.jp/news/art/2018-06/curry.html"
+        span ）
+      h5.my-5 スパイスカレーはラーメンのように自由度が高く、且つ、ラーメンよりも簡単な材料で、世界に一つだけのこだわりの味を創造できる点も魅力の1つです。
+      h5.my-5 あなたも一度騙されたと思ってスパイスカレー屋さんに足を運んでみて下さい。
+      h5.my-5 もしかすると身近な食べ物として捉えてきた「カレー」の概念が変わるかもしれません。(私は変わりました。)
+      h5.mt-5.my-4 さぁ、あなたも今流行りのスパイスカレーの世界に魅了されてみませんか？
+.container.mt-4.my-3
+  = link_to "全ての店舗を見る", shops_url
+  = render 'shops/all_shops'

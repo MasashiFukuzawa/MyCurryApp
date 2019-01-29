@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  %w(about help contact concept).each do |path|
+  %w(about help concept).each do |path|
     get path, to: "static_pages##{path}"
   end
 
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   
   resources :shops, only: [:index, :show]
   resources :comments, only: [:create, :destroy]
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:index, :create, :destroy]
 end

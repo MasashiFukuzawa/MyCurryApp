@@ -8,12 +8,13 @@ class Shop < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   
-
   validates :name, presence: true, length: {maximum: 50}
   validates :phone, presence: true, uniqueness: true, format: {with: PHONE_REGEX}
   validates :address, presence: true, length: {maximum: 100}
   validates :area, :station, presence: true, length: {maximum: 20}
   validates :google_map_url, presence: true
+
+  scope :like_num, -> {order(likes_count: :desc)}
 
   def like?(user)
     like_users.include?(user)
@@ -21,7 +22,7 @@ class Shop < ApplicationRecord
 
   def self.search(search)
     if search
-      where(['name LIKE ? or address LIKE ? or area LIKE ? or station LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      where(['name LIKE ? or phone LIKE ? or address LIKE ? or area LIKE ? or station LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       all
     end

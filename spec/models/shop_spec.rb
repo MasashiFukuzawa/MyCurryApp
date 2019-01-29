@@ -44,5 +44,24 @@ describe Shop do
   describe "shop association" do
     it {have_many :users}
     it {have_many :comments}
+    it {have_many :likes}
+  end
+
+  describe "search function" do
+    it "returns shops that match ther search term" do
+      shop1 = FactoryBot.create(:shop)
+      shop2 = FactoryBot.create(:shop, name: "よそみシーズン2")
+      shop3 = FactoryBot.create(:shop, name: "ガネーシュN")
+      shop4 = FactoryBot.create(:shop, name: "ガネーシュM")
+
+      expect(Shop.search("ガネーシュ")).to_not include(shop1, shop2)
+      expect(Shop.search("ガネーシュ")).to include(shop3, shop4)
+      expect(Shop.search("06-7771-2222")).to include(shop1)
+      expect(Shop.search("0677712222")).to_not include(shop1, shop2, shop3, shop4)
+      expect(Shop.search("カルダモン1丁目1番1号")).to include(shop1, shop2, shop3, shop4)
+      expect(Shop.search("カルダモン2丁目")).to_not include(shop1, shop2, shop3, shop4)
+      expect(Shop.search("クミン")).to include(shop1, shop2, shop3, shop4)
+      expect(Shop.search("ターメリック")).to include(shop1, shop2, shop3, shop4)
+    end
   end
 end

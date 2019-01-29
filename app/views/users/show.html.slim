@@ -1,4 +1,4 @@
-= provide(:title, "ユーザー情報")
+= provide(:title, @user.name)
 h2.mt-3.mb-5.text-center ユーザー情報
 .container.w-50
   table.table
@@ -6,9 +6,6 @@ h2.mt-3.mb-5.text-center ユーザー情報
       tr
         th.w-25 ユーザー名
         td.w-50 = @user.name
-      tr
-        th.w-25 メールアドレス
-        td.w-50 = @user.email
       tr
         th.w-25 プロフィール画像
         td.w-50
@@ -21,27 +18,7 @@ h2.mt-3.mb-5.text-center ユーザー情報
       tr
         th.w-25 自己紹介文
         td.w-50 = simple_format(@user.description)
-      tr
-        th.w-25 いいね！したお店
-        td.w-50 
-          - if @user.likes.any?
-            ol
-              - @likes.each do |like|
-                li.list-unstyled = link_to like.shop.name, shop_url(like.shop_id)
-.container.w-50.py-3.px-4
-  p.font-weight-bold コメント一覧
-  - if @user.comments.any?
-    ol
-      - @comments.each do |comment|
-        li.list-unstyled.border-top.border-secondary
-          h5.mt-3.ml-4.font-weight-normal = link_to comment.shop.name, shop_url(comment.shop_id)
-          h5.mt-3.ml-4.font-weight-normal = simple_format(comment.body)
-          - if comment.image_data
-            = image_tag(comment.image[:midium].url, class: "img-fluid w-50 mx-auto d-block py-4", size: '200x200')
-          p.mt-5.text-right
-            span.mr-2 #{time_ago_in_words(comment.created_at)}前
-            - if comment.user == current_user
-              span.mr-2 |
-              span = link_to "コメントを削除", comment, method: :delete, data: {confirm: "コメントを削除します。\n本当によろしいですか？"}
-      .row.justify-content-center
-          = paginate @comments, theme: 'twitter-bootstrap-4'
+- if @user.likes.any?
+  = render 'likes_index'
+- if @user.comments.any?
+  = render 'comments_index'

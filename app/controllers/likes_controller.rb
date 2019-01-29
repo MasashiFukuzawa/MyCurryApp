@@ -1,5 +1,9 @@
 class LikesController < ApplicationController
-  before_action :set_variables
+  before_action :set_variables, except: :index
+
+  def index
+    @likes = current_user.likes.all.desc
+  end
 
   def create
     @shop = Shop.find(params[:shop_id])
@@ -13,10 +17,9 @@ class LikesController < ApplicationController
   def destroy
     @shop = Shop.likes.find(params[:id])
     @shop.likes.find_by(user_id: current_user.id).destroy
-      respond_to do |format|
-        format.html {redirect_back(fallback_location: root_url)}
-        format.js
-      end
+    respond_to do |format|
+      format.html {redirect_back(fallback_location: root_url)}
+      format.js
     end
   end
 

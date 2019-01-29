@@ -24,28 +24,10 @@ h2.mt-3.mb-5.text-center マイページ
       tr
         th.w-25 自己紹介文
         td.w-50 = simple_format(current_user.description)
-      tr
-        th.w-25 いいね！したお店
-        td.w-50
-          - if @user.likes.any?
-            ol
-              - @likes.each do |like|
-                li.list-unstyled = link_to like.shop.name, shop_url(like.shop_id)
-.container.w-50.py-3.px-4
-  p.font-weight-bold コメント一覧
+  - if current_user.likes.any?
+    = render 'users/likes_index'
   - if current_user.comments.any?
-    ol
-      - @comments.each do |comment|
-        li.list-unstyled.border-top.border-secondary
-          h5.mt-3.ml-4.font-weight-normal = link_to comment.shop.name, shop_url(comment.shop_id)
-          h5.mt-3.ml-4.font-weight-normal = simple_format(comment.body)
-          - if comment.image_data
-            = image_tag(comment.image[:midium].url, class: "img-fluid w-50 mx-auto d-block py-4", size: '200x200')
-          p.mt-5.text-right
-            span.mr-2 #{time_ago_in_words(comment.created_at)}前
-            - if comment.user == current_user
-              span.mr-2 |
-              span = link_to "コメントを削除", comment, method: :delete, data: {confirm: "コメントを削除します。\n本当によろしいですか？"}
-      .row.justify-content-center
-          = paginate @comments, theme: 'twitter-bootstrap-4'
-  = link_to "ユーザー情報を編集する", edit_user_registration_path, class: "btn btn-info btn my-5 d-block mx-auto w-50"
+    = render 'users/comments_index'
+  = link_to "ユーザー情報を編集する", edit_user_registration_url, class: "btn btn-info btn my-3 d-block mx-auto w-50"
+.mb-5.text-center
+  = link_to "自分のプロフィールを確認する", user_url(current_user.id)

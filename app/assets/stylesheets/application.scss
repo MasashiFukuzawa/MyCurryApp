@@ -9,6 +9,12 @@
   font-weight: bold;
 }
 
+// aboutページ
+h2#about-title {
+  border-bottom: 2px solid black;
+  padding-bottom: 15px;
+}
+
 // フォーム
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;

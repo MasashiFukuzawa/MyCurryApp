@@ -18,9 +18,9 @@ describe User do
   end
 
   describe "user association" do
-    it {have_one :profile}
     it {have_many :comments}
     it {have_many :shop}
+    it {have_many :likes}
   end
   
 end

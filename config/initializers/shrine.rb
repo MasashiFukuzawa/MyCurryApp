@@ -15,10 +15,10 @@ if Rails.env.production?
     store: Shrine::Storage::S3.new(prefix: 'store', **s3_options)}
 else
   Shrine.storages = {
-      cache: Shrine::Storage::FileSystem.new('public', prefix: 'images/uploads/cache'),
-      store: Shrine::Storage::FileSystem.new('public', prefix: 'images/uploads/store')}
+      cache: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/cache'),
+      store: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/store')}
 end
 
 # 使用するプラグインの宣言
 Shrine.plugin :activerecord
-Shrine.plugin :cached_attachment_data # for forms
+Shrine.plugin :cached_attachment_data

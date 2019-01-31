@@ -29,27 +29,6 @@ describe CommentsController do
         end
       end
     end
-    
-    # # ゲストとして
-    # context "as a guest" do
-    #   before do
-    #     @user = FactoryBot.create(:user)
-    #     @shop = FactoryBot.create(:shop)
-    #   end
-    #   # 302レスポンスを返すこと
-    #   it "returns a 302 response" do
-    #     comment_params = FactoryBot.attributes_for(:comment, user_id: @user.id)
-    #     post :create, params: {shop_id: @shop.id, comment: comment_params}
-    #     expect(response).to have_http_status "302"
-    #   end
-      
-    #   # サインイン画面にリダイレクトすること
-    #   it "redirects to the sign-in page" do
-    #     comment_params = FactoryBot.attributes_for(:comment, user_id: @user.id)
-    #     post :create, params: {shop_id: @shop.id, comment: comment_params}
-    #     expect(response).to redirect_to "/users/sign_in"
-    #   end
-    # end
   end
   
   describe "DELETE #destroy" do
@@ -90,31 +69,5 @@ describe CommentsController do
         expect(response).to redirect_to root_path
       end
     end
-    
-    # # ゲストとして
-    # context "as a guest" do
-    #   before do
-    #     @user = FactoryBot.create(:user)
-    #     @shop = FactoryBot.create(:shop)
-    #     @comment = FactoryBot.create(:comment, user_id: @user.id, shop_id: @shop.id)
-    #   end
-      
-    #     # 302レスポンスを返すこと
-    #   it "returns a 302 response" do
-    #     delete :destroy, params: {id: @comment.id}
-    #     expect(response).to have_http_status "302"
-    #   end
-      
-    #     # サインイン画面にリダイレクトすること
-    #     it "redirects to sign-in page" do
-    #       delete :destroy, params: {id: @comment.id}
-    #       expect(response).to redirect_to "/users/sign_in"
-    #     end
-
-    #   # コメントを削除できないこと
-    #   it "does not delete the comment" do
-    #     expect{delete :destroy, params: {id: @comment.id}}.to_not change(@comment, :count)
-    #   end
-    # end
   end
 end

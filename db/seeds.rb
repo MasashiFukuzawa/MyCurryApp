@@ -1,4 +1,3 @@
-# Shop
 if Shop.count < 1
   Shop.create!(name: "定食堂 金剛石",
               phone: "06-7174-2578",
@@ -15,66 +14,65 @@ if Shop.count < 1
 end
 
 if Rails.env.development?
-  99.times do
-    Shop.create!(name: Faker::Food.spice,
-                phone: Faker::PhoneNumber.cell_phone,
-                address: Faker::Address.full_address,
-                area: Faker::Address.state,
-                station: "#{Faker::Address.street_name}駅",
-                google_map_url: Faker::Address.state)
+  if Shop.count < 2
+    99.times do
+      Shop.create!(name: Faker::Food.spice,
+                  phone: Faker::PhoneNumber.cell_phone,
+                  address: Faker::Address.full_address,
+                  area: Faker::Address.state,
+                  station: "#{Faker::Address.street_name}駅",
+                  google_map_url: Faker::Address.state)
+    end
   end
 
-  # User
-  User.create!(name:  "カレー大好きまず子さん",
-              email: "mazuko@example.com",
-              description: "毎日カレーを食べ歩いています！\nたまにインドで修行してます！",
-              password:              "foobar",
-              password_confirmation: "foobar")
-              
-  99.times do |n|
-    User.create!(name: Faker::DragonBall.character,
-                email: "example-#{n+1}@example.com",
-                password: "password",
-                password_confirmation: "password")
+  if User.count < 1
+    User.create!(name:  "カレー大好きまず子さん",
+    email: "mazuko@example.com",
+    description: "毎日カレーを食べ歩いています！\nたまにインドで修行してます！",
+    password:              "foobar",
+    password_confirmation: "foobar")
+    
+    99.times do |n|
+      User.create!(name: Faker::DragonBall.character,
+      email: "example-#{n+1}@example.com",
+      password: "password",
+      password_confirmation: "password")
+    end
+  end
+  
+  if Comment.count < 1
+    User.first.comments.create!(
+      body: "美味しすぎてカレーの概念が変わりました。",
+      shop: Shop.find(1),
+      created_at: Time.zone.now)
+      
+    50.times do
+      User.all.sample.comments.create!(
+        body: Faker::ChuckNorris.fact,
+        shop: Shop.find(1),
+        created_at: 2.hours.ago)
+    end
+      
+    30.times do
+      User.all.sample.comments.create!(
+        body: Faker::ChuckNorris.fact,
+        shop: Shop.find(2),
+        created_at: 5.hours.ago)
+    end
+      
+    100.times do
+      User.all.sample.comments.create!(
+          body: Faker::ChuckNorris.fact,
+          shop: Shop.all.sample,
+          created_at: 5.days.ago)
+    end  
   end
 
-  # Comment
-  User.first.comments.create!(
-              body: "美味しすぎてカレーの概念が変わりました。",
-              shop: Shop.find(1),
-              created_at: Time.zone.now)
-              
-  50.times do |n|
-    User.find(n+1).comments.create!(
-              body: Faker::ChuckNorris.fact,
-              shop: Shop.find(1),
-              created_at: 2.hours.ago)
-  end
-
-  30.times do |n|
-    User.find(n+1).comments.create!(
-              body: Faker::ChuckNorris.fact,
-              shop: Shop.find(2),
-              created_at: 5.hours.ago)
-  end
-
-  99.times do |n|
-    Shop.find(n+2).comments.create!(
-              body: Faker::ChuckNorris.fact,
-              user: User.find(1),
-              created_at: 5.days.ago)
-  end
-
-  # Like
-  50.times do |n|
-    User.find(n+1).likes.create!(shop_id: 1)
-  end
-
-  30.times do |n|
-    User.find(n+1).likes.create!(shop_id: 2)
-  end
-
-  50.times do |n|
-    Shop.find(n+3).likes.create!(user_id: 1)
+  if Like.count < 1
+    User.first.likes.create!(shop: Shop.find(1))
+    
+    49.times do |n|
+      User.find(n + 2).likes.create!(shop: Shop.find(1))
+    end
   end
 end

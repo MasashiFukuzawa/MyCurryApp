@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_variables, except: :index
+  before_action :set_id_tag, except: :index
 
   def index
     @likes = current_user.likes.all.desc
@@ -13,9 +13,9 @@ class LikesController < ApplicationController
       format.js
     end
   end
-
+  
   def destroy
-    @shop = Shop.likes.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
     @shop.likes.find_by(user_id: current_user.id).destroy
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_url)}
@@ -25,8 +25,8 @@ class LikesController < ApplicationController
 
   private
 
-    def set_variables
-      @shop = shop.find(params[:shop_id])
+    def set_id_tag
+      @shop = Shop.find(params[:shop_id])
       @id_name = "#like-link-#{@shop.id}"
     end
 end

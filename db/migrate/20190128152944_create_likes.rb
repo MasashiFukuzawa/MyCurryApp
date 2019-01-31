@@ -1,13 +1,11 @@
 class CreateLikes < ActiveRecord::Migration[5.2]
   def change
     create_table :likes do |t|
-      t.integer :user_id, null: false
-      t.integer :shop_id, null: false
+      t.references :shop, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
-    add_index :likes, :user_id
-    add_index :likes, :shop_id
     add_index :likes, [:user_id, :shop_id], unique: true
   end
 end

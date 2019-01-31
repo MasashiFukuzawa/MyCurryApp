@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-# RSpec.describe Like, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+describe Like　do
+  describe "like validation" do
+    it {allow_value :like}
+    it {is_expected.to validate_presence_of :user}
+    it {is_expected.to validate_presence_of :shop}
+  end
+
+  describe "like association" do
+    it {belong_to :user}
+    it {belong_to :shop}
+  end
+end

@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2019_01_28_152944) do
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "shop_id", null: false
+    t.bigint "shop_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_likes_on_shop_id"
@@ -77,4 +77,6 @@ ActiveRecord::Schema.define(version: 2019_01_28_152944) do
 
   add_foreign_key "comments", "shops"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "shops"
+  add_foreign_key "likes", "users"
 end

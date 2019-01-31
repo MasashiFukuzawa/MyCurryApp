@@ -4,11 +4,11 @@
       .card.mb-3
         = link_to shop_url(shop) do
           - if shop.image_data
-            = image_tag(shop.image_url, class: "img-fluid mx-auto d-block")
-          - else 
+            = image_tag(shop.image[:original].url, class: "img-fluid mx-auto d-block")
+          - else
             = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
         .card-body.d-flex.justify-content-between
           h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
-          span.card-title ❤️#{shop.likes.size} 💬#{shop.comments.size}
+          span.card-title.fa.fa-heart.like-btn #{shop.likes.size} 💬#{shop.comments.size}
 .row.justify-content-center
   = paginate @shops, theme: 'twitter-bootstrap-4'

@@ -6,7 +6,7 @@
         h5.mt-3.ml-4.font-weight-normal = link_to comment.shop.name, shop_url(comment.shop_id)
         h5.mt-3.ml-4.font-weight-normal = simple_format(comment.body)
         - if comment.image_data
-          = image_tag(comment.image[:midium].url, class: "img-fluid w-50 mx-auto d-block py-4", size: '200x200')
+          = image_tag(comment.image[:original].url, class: "img-fluid w-50 mx-auto d-block py-4")
         p.mt-5.text-right
           span.mr-2 #{time_ago_in_words(comment.created_at)}前
           - if comment.user == current_user

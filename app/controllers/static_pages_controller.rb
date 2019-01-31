@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
+  before_action :shop_index, only: [:home, :about]
+  
   def home
-    @shops = Shop.page(params[:page]).per(9).like_num
   end
   
   def about
-    @shops = Shop.page(params[:page]).per(9).like_num
   end
 
   def help
@@ -12,4 +12,10 @@ class StaticPagesController < ApplicationController
 
   def concept
   end
+
+  private
+
+    def shop_index
+      @shops = Shop.page(params[:page]).per(9).like_num
+    end
 end

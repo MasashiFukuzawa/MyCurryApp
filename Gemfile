@@ -14,7 +14,6 @@ gem "shrine"
 gem "aws-sdk-s3"
 gem 'image_processing'
 gem 'mini_magick'
-gem 'devise'
 gem 'slim-rails'
 gem 'rails-i18n'
 gem 'puma', '~> 3.11'

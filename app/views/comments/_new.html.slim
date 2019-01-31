@@ -7,9 +7,9 @@
         .mt-5
           = f.label :body, "コメント"
           = f.text_area :body, class: "form-control pb-5 mb-3"
-          = f.label :image_data , "画像（複数枚選択可能）"
+          = f.label :image_data , "画像　"
           = f.hidden_field :image, value: @comment.cached_image_data
-          = f.file_field :image, class:"rounded", multiple: true
+          = f.file_field :image, class:"rounded"
           = f.submit "コメントを投稿", class: "btn btn-info btn-lg my-3 w-100"
     - else
       = link_to "ログインしてコメントを投稿！", new_user_session_url, class: "btn btn-info btn-lg my-5 w-100"

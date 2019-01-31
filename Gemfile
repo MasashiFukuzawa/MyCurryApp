@@ -10,6 +10,7 @@ gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails', '~> 4.3'
+gem 'font-awesome-rails'
 gem "shrine"
 gem "aws-sdk-s3"
 gem 'image_processing'

@@ -33,9 +33,9 @@ describe Shop do
     end
     
     it "has unique phone number" do
-      shop1 = FactoryBot.create(:shop, phone: "06-7777-2222")
+      shop1 = FactoryBot.create(:shop)
       expect(shop1).to be_valid
-      shop2 = FactoryBot.build(:shop, phone: "06-7777-2222")
+      shop2 = FactoryBot.build(:shop)
       shop2.valid?
       expect(shop2.errors[:phone]).to include("はすでに存在します")
     end
@@ -50,14 +50,14 @@ describe Shop do
   describe "search function" do
     it "returns shops that match ther search term" do
       shop1 = FactoryBot.create(:shop)
-      shop2 = FactoryBot.create(:shop, name: "よそみシーズン2")
-      shop3 = FactoryBot.create(:shop, name: "ガネーシュN")
-      shop4 = FactoryBot.create(:shop, name: "ガネーシュM")
+      shop2 = FactoryBot.create(:shop, name: "よそみシーズン2", phone: "06-7770-2222")
+      shop3 = FactoryBot.create(:shop, name: "ガネーシュN", phone: "06-7771-2222")
+      shop4 = FactoryBot.create(:shop, name: "ガネーシュM", phone: "06-7772-2222")
 
       expect(Shop.search("ガネーシュ")).to_not include(shop1, shop2)
       expect(Shop.search("ガネーシュ")).to include(shop3, shop4)
-      expect(Shop.search("06-7771-2222")).to include(shop1)
-      expect(Shop.search("0677712222")).to_not include(shop1, shop2, shop3, shop4)
+      expect(Shop.search("06-7777-2222")).to include(shop1)
+      expect(Shop.search("0677772222")).to_not include(shop1, shop2, shop3, shop4)
       expect(Shop.search("カルダモン1丁目1番1号")).to include(shop1, shop2, shop3, shop4)
       expect(Shop.search("カルダモン2丁目")).to_not include(shop1, shop2, shop3, shop4)
       expect(Shop.search("クミン")).to include(shop1, shop2, shop3, shop4)

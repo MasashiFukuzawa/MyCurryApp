@@ -15,6 +15,7 @@ class Shop < ApplicationRecord
   validates :google_map_url, presence: true
 
   scope :like_num, -> {order(likes_count: :desc)}
+  scope :comment_num, -> {order(comments_count: :desc)}
 
   def like?(user)
     like_users.include?(user)

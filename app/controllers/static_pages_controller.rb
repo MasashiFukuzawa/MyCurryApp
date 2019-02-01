@@ -16,6 +16,6 @@ class StaticPagesController < ApplicationController
   private
 
     def shop_index
-      @shops = Shop.page(params[:page]).per(9).like_num
+      @shops = Shop.page(params[:page]).per(9).like_num.comment_num
     end
 end

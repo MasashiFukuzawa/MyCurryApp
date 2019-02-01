@@ -1,13 +1,13 @@
 .row.w-75.d-block.mx-auto
   .col-md-6.col-md-offset-3.mx-auto.d-block
     - if user_signed_in?
-      = form_for @comment, url: shop_comments_path(@shop.id) do |f|
+      = form_for current_user.comments.build, url: shop_comments_path(@shop.id) do |f|
         = render 'shared/error_messages', object: f.object
         .mt-5
           = f.label :body, "コメント"
           = f.text_area :body, class: "form-control pb-5 mb-3"
           = f.label :image_data , "画像　"
-          = f.hidden_field :image, value: @comment.cached_image_data
+          = f.hidden_field :image, value: current_user.comments.build.cached_image_data
           = f.file_field :image, class:"rounded"
           = f.submit "コメントを投稿", class: "btn btn-info btn-lg my-3 w-100"
     - else

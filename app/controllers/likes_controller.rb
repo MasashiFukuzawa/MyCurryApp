@@ -1,32 +1,28 @@
 class LikesController < ApplicationController
-  before_action :set_id_tag, except: :index
+  before_action :set_shop, only: :create
 
   def index
     @likes = current_user.likes.all.desc
   end
 
   def create
-    @shop = Shop.find(params[:shop_id])
-    @shop.likes.create(user_id: current_user.id)
-    respond_to do |format|
-      format.html {redirect_back(fallback_location: root_url)}
-      format.js
-    end
-  end
-  
-  def destroy
-    @shop = Shop.find(params[:shop_id])
-    @shop.likes.find_by(user_id: current_user.id).destroy
-    respond_to do |format|
-      format.html {redirect_back(fallback_location: root_url)}
-      format.js
-    end
+    @like = current_user.likes.find_by(shop: @shop)
+    toggle
   end
 
   private
 
-    def set_id_tag
+    def toggle
+      if @like
+        return head :unprocessable_entity unless @like.destroy
+      else
+        @like = current_user.likes.build(shop: @shop)
+        return head :unprocessable_entity unless @like.save
+      end
+      head :ok
+    end
+
+    def set_shop
       @shop = Shop.find(params[:shop_id])
-      @id_name = "#like-link-#{@shop.id}"
     end
 end

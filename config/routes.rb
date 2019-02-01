@@ -5,15 +5,11 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {:omniauth_callbacks => "omniauth_callbacks"}
-  
   resources :users, only: :show
-  namespace :mypage do
-    resources :users, only: :show
-  end
   
   resources :shops, only: [:index, :show] do
     resources :comments, only: [:create]
   end
   resources :comments, only: :destroy
-  resources :likes, only: [:index, :create, :destroy]
+  resources :likes, only: [:index, :create]
 end

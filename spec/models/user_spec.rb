@@ -22,5 +22,4 @@ describe User do
     it {have_many :shop}
     it {have_many :likes}
   end
-  
 end

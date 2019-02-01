@@ -11,4 +11,8 @@
               = image_tag("sample", class: "img-fluid mx-auto d-block", alt: like.shop.name)
           .card-body.d-flex.justify-content-between
             h5.card-title = link_to like.shop.name, shop_url(like.shop_id), class: "text-dark"
-            span.card-title ❤️#{like.shop.likes.size} 💬#{like.shop.likes.size}
+            .row
+              span.card-title.fa.fa-heart.like-btn
+              span.ml-1 #{like.shop.likes.size}
+              span.card-title.fa.fa-comment.like-btn.ml-2.mr-1
+              span.mr-3 #{like.shop.comments.size}

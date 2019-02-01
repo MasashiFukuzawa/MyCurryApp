@@ -20,6 +20,8 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-md.sticky-top
               = link_to "マイページ", user_url(current_user), class: "dropdown-item"
               = link_to "設定", edit_user_registration_url, class: "dropdown-item"
               = link_to "ログアウト", destroy_user_session_url, method: :delete, class: "dropdown-item"
+              - if current_user.admin_flg
+                = link_to "管理者ページ", rails_admin_url, class: "dropdown-item"
       = form_tag shops_path, method: :get do
         .input-group
           = text_field_tag :search, params[:search], class: "form-control", placeholder: "キーワード"

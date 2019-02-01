@@ -25,12 +25,12 @@ if Rails.env.development?
     end
   end
 
-  if User.count < 1
-    User.create!(name:  "カレー大好きまず子さん",
-    email: "mazuko@example.com",
-    description: "毎日カレーを食べ歩いています！\nたまにインドで修行してます！",
-    password:              "foobar",
-    password_confirmation: "foobar")
+  if User.count < 2
+    User.create!(name:  "admin",
+    email: "m.fukuzawa0316@gmail.com",
+    description: "管理者です。",
+    password:              "admin_pass",
+    password_confirmation: "admin_pass")
     
     99.times do |n|
       User.create!(name: Faker::DragonBall.character,

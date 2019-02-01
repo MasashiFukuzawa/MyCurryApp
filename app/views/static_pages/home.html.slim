@@ -1,5 +1,5 @@
 .container.my-3
-  = link_to "今週のオススメ", "#"
+  = link_to "今週のオススメ", shop_url(Shop.find(1))
   #top-wrapper.bg-dark.my-3
     #main_visual.carousel.slide data-ride="carousel"
       ol.carousel-indicators
@@ -8,7 +8,7 @@
         li data-target="#main_visual" data-slide-to="2"
         li data-target="#main_visual" data-slide-to="3"
       .carousel-inner
-        = link_to "#" do
+        = link_to shop_url(Shop.find(1)) do
           .carousel-item.active
             = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
           .carousel-caption.d-none.d-md-block

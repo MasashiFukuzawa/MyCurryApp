@@ -16,7 +16,7 @@ h2.mt-3.mb-2.text-center 設定
       = f.label :image_data, "プロフィール画像"
       .mb-3
         - if current_user.image_data
-          = image_tag(current_user.image[:original].url, size: '200x200')
+          = image_tag(current_user.image[:medium].url, size: '200x200')
         - elsif current_user.twitter_image
           = image_tag(current_user.twitter_image.gsub(/_normal/, ''), size: '200x200')
         - else

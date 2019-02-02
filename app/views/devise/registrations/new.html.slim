@@ -3,7 +3,6 @@ h2.mt-3.mb-2.text-center 新規登録
 .row
   .col-md-6.col-md-offset-3.mx-auto.d-block
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render 'shared/error_messages', object: f.object
       = f.label :name
       = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control mb-3"
       = f.label :email

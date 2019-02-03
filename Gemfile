@@ -27,7 +27,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'mysql2'
   gem 'dotenv-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 4.11'
   gem 'rspec-rails'
   gem 'pry-rails'
 end

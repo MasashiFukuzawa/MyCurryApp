@@ -1,4 +1,6 @@
-= provide(:title, "定食堂 金剛石")
+= provide(:title, @shop.name)
 = render 'top_img'
-h1.text-center.d-block.mx-auto.bg-light.w-75.my-4.border.p-5 ここに投稿されたコメントが入ります。
+= render "likes/like"
+= render 'comments'
+= render 'comments/new'
 = render 'info'

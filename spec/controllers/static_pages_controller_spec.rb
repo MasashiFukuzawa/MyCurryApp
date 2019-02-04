@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StaticPagesController, type: :controller do
+describe StaticPagesController do
 
   describe "GET #home" do
     it "returns http success" do
@@ -23,11 +23,10 @@ RSpec.describe StaticPagesController, type: :controller do
     end
   end
 
-  describe "GET #contact" do
+  describe "GET #concept" do
     it "returns http success" do
-      get :contact
+      get :concept
       expect(response).to have_http_status(:success)
     end
   end
-
 end

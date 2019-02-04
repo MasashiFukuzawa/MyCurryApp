@@ -1,0 +1,26 @@
+= provide(:title, @user.name)
+h2.mt-3.mb-5.text-center ユーザー情報
+.container.w-50
+  table.table
+    tbody
+      tr
+        th.w-25 ユーザー名
+        td.w-50 = @user.name
+      tr
+        th.w-25 プロフィール画像
+        td.w-50
+          - if @user.image_data
+            = image_tag(@user.image[:medium].url, class: "my-3 img-fluid")
+          - elsif @user.twitter_image
+            = image_tag(@user.twitter_image.gsub(/_normal/, ''), size: '200x200', class: "my-3")
+          - else 
+            = image_tag("profile", size: '200x200', class: "my-3")
+      tr
+        th.w-25 自己紹介文
+        td.w-50 = simple_format(@user.description)
+- if user_signed_in? && @user.id == current_user.id
+  = link_to "ユーザー情報を編集する", edit_user_registration_url, class: "btn btn-info btn my-3 d-block mx-auto w-50"
+- if @user.likes.any?
+  = render 'likes_index'
+- if @user.comments.any?
+  = render 'comments_index'

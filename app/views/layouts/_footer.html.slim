@@ -5,7 +5,7 @@ footer.py-1.bg-dark
       li.navbar-item = link_to "スパイスカレーとは？", about_url, class: "nav-link text-light"
       li.navbar-item = link_to "このサイトについて", concept_url, class: "nav-link text-light"
       li.navbar-item = link_to "よくある質問", help_url, class: "nav-link text-light"
-      li.navbar-item = link_to "お問い合わせ", contact_url, class: "nav-link text-light"
+      li.navbar-item = mail_to 'm.fukuzawa0316@gmail.com', "お問い合わせ", subject: 'Spiceful daysに関する問い合わせ', class: "nav-link text-light"
     p
       small.text-light
         | Copyright &copy; Masashi Fukuzawa, All Rights Reserved.

@@ -1,0 +1,18 @@
+.row.my-3.mx-3
+  - @shops.each do |shop|
+    .col-md-4.mb-3
+      .card.mb-3
+        = link_to shop_url(shop) do
+          - if shop.image_data
+            = image_tag(shop.image[:medium].url, class: "img-fluid mx-auto d-block")
+          - else
+            = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
+        .card-body.d-flex.justify-content-between
+          h5.card-title = link_to shop.name, shop_url(shop), class: "text-dark"
+          .row
+            span.card-title.fa.fa-heart.like-btn
+            span.ml-1 #{shop.likes.size}
+            span.card-title.fa.fa-comment.like-btn.ml-2.mr-1
+            span.mr-3 #{shop.comments.size}
+.row.justify-content-center
+  = paginate @shops, theme: 'twitter-bootstrap-4'

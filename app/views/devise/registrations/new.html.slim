@@ -1,0 +1,19 @@
+= provide(:title, "新規登録")
+= devise_error_messages!
+h2.mt-3.mb-2.text-center 新規登録
+.row
+  .col-md-6.col-md-offset-3.mx-auto.d-block
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.label :name
+      = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control mb-3"
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3"
+      = f.label :password
+      span （#{@minimum_password_length}文字以上）
+      = f.password_field :password, autocomplete: "new-password", class: "form-control mb-3"
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-3"
+      = f.submit "新規登録", class: "btn btn-primary btn-lg mt-3 w-100 mb-3"
+    .mb-4.text-center
+      - resource_class.omniauth_providers.each do |provider|
+        = link_to "#{OmniAuth::Utils.camelize(provider)}アカウントで新規登録＆ログイン", omniauth_authorize_path(resource_name, provider)

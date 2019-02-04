@@ -1,0 +1,16 @@
+= provide(:title, "ログイン")
+h2.mt-3.mb-2.text-center ログイン
+.row
+  .col-md-6.col-md-offset-3.mx-auto.d-block
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3"
+      = f.label :password
+      = f.password_field :password, autocomplete: "current-password", class: "form-control mb-3"
+      = f.check_box :remember_me
+      = f.label :remember_me
+      p.mb-0 = link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name)
+      = f.submit "ログイン", class: "btn btn-info btn-lg mt-3 w-100 mb-3"
+    .mb-4.text-center
+      - resource_class.omniauth_providers.each do |provider|
+        = link_to "#{OmniAuth::Utils.camelize(provider)}アカウントでログイン", omniauth_authorize_path(resource_name, provider)

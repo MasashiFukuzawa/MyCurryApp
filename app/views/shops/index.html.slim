@@ -1,2 +1,4 @@
-h1 Shops#index
-p Find me in app/views/shops/index.html.slim
+= provide(:title, "店舗一覧")
+.container
+  h2.mt-3.mb-5.text-center 店舗一覧
+  = render 'all_shops'

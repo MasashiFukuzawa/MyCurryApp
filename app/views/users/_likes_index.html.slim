@@ -1,0 +1,18 @@
+.container.pt-5.pb-3.px-4
+  p.font-weight-bold いいね！したお店一覧
+  .row.my-3.mx-3
+    - @likes.each do |like|
+      .col-md-4.mb-3
+        .card.mb-3
+          = link_to shop_url(like.shop_id) do
+            - if like.shop.image_data
+              = image_tag(like.shop.image_url, class: "img-fluid mx-auto d-block")
+            - else 
+              = image_tag("sample", class: "img-fluid mx-auto d-block", alt: like.shop.name)
+          .card-body.d-flex.justify-content-between
+            h5.card-title = link_to like.shop.name, shop_url(like.shop_id), class: "text-dark"
+            .row
+              span.card-title.fa.fa-heart.like-btn
+              span.ml-1 #{like.shop.likes.size}
+              span.card-title.fa.fa-comment.like-btn.ml-2.mr-1
+              span.mr-3 #{like.shop.comments.size}

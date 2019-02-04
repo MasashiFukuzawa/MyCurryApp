@@ -1,21 +1,7 @@
 .container.my-3
-  h1 定食堂 金剛石
-  #top-wrapper.bg-dark.my-3
-    #main_visual.carousel.slide data-ride="carousel"
-      .carousel-inner
-        .carousel-item.active
-          = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
-        .carousel-item
-          = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
-        .carousel-item
-          = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
-        .carousel-item
-          = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: "定食堂 金剛石")
-        .carousel-caption.d-none.d-md-block
-        a.carousel-control-prev href="#main_visual" data-slide="prev"
-          span.carousel-control-prev-icon
-        a.carousel-control-next href="#main_visual" data-slide="next"
-          span.carousel-control-next-icon
+  h1.text-center.py-3.pl-3 #{@shop.name}
+.my-3
+  - if @shop.image_data
+    = image_tag(@shop.image[:medium].url, class: "my-3 img-fluid d-block mx-auto w-50")
+  - else 
+    = image_tag("sample", class: "my-3 img-fluid d-block mx-auto w-50")

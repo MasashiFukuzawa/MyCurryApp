@@ -1,0 +1,12 @@
+= provide(:title, "パスワードの再登録")
+= devise_error_messages!
+h2.mt-3.mb-2.text-center パスワードの再登録
+.row
+  .col-md-6.col-md-offset-3.mx-auto.d-block
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f|
+      = f.hidden_field :reset_password_token
+      = f.label :password, "新しいパスワード (#{@minimum_password_length}文字以上)"
+      = f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control mb-3"
+      = f.label :password_confirmation, "新しいパスワード (確認)"
+      = f.password_field :password_confirmation, autocomplete: "off", class: "form-control mb-3"
+      = f.submit "パスワードを再登録してログイン", class: "btn btn-info btn-lg mt-3 w-100 mb-5"

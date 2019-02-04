@@ -1,5 +1,5 @@
 .container.my-3
-  h1#example.text-center.py-3.pl-3 #{@shop.name}
+  h1.text-center.py-3.pl-3 #{@shop.name}
 .my-3
   - if @shop.image_data
     = image_tag(@shop.image[:medium].url, class: "my-3 img-fluid d-block mx-auto w-50")

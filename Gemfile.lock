@@ -103,10 +103,12 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    cliver (0.3.2)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     content_disposition (1.0.0)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -201,6 +203,10 @@ GEM
       rack
     orm_adapter (0.5.0)
     pg (1.1.4)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -342,6 +348,7 @@ DEPENDENCIES
   bootstrap4-kaminari-views
   capybara (>= 2.15)
   chromedriver-helper
+  database_cleaner
   devise
   dotenv-rails
   factory_bot_rails (~> 4.11)
@@ -357,6 +364,7 @@ DEPENDENCIES
   mysql2
   omniauth-twitter
   pg
+  poltergeist
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.2)

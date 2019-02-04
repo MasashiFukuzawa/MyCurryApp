@@ -3,8 +3,6 @@ h2.mt-3.mb-2.text-center ログイン
 .row
   .col-md-6.col-md-offset-3.mx-auto.d-block
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = f.label :name
-      = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control mb-3"
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3"
       = f.label :password

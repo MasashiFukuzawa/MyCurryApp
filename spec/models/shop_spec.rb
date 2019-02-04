@@ -14,28 +14,28 @@ describe Shop do
     it {validate_length_of :area}
     it {validate_length_of :station}
     
-    it "has valid length of a phone number and is number" do
-      shop = FactoryBot.build(:shop, phone: "1" * 10)
+    it "has valid phone number" do
+      shop = build(:shop, phone: "1" * 10)
       shop.valid?
       expect(shop.errors[:phone]).to include("は不正な値です")
       
-      shop = FactoryBot.build(:shop, phone: "0" * 9)
+      shop = build(:shop, phone: "0" * 9)
       shop.valid?
       expect(shop.errors[:phone]).to include("は不正な値です")
       
-      shop = FactoryBot.build(:shop, phone: "0" * 12)
+      shop = build(:shop, phone: "0" * 12)
       shop.valid?
       expect(shop.errors[:phone]).to include("は不正な値です")
       
-      shop = FactoryBot.build(:shop, phone: "a" * 10)
+      shop = build(:shop, phone: "a" * 10)
       shop.valid?
       expect(shop.errors[:phone]).to include("は不正な値です")
     end
     
     it "has unique phone number" do
-      shop1 = FactoryBot.create(:shop)
+      shop1 = create(:shop)
       expect(shop1).to be_valid
-      shop2 = FactoryBot.build(:shop)
+      shop2 = build(:shop)
       shop2.valid?
       expect(shop2.errors[:phone]).to include("はすでに存在します")
     end
@@ -49,10 +49,10 @@ describe Shop do
 
   describe "search function" do
     it "returns shops that match ther search term" do
-      shop1 = FactoryBot.create(:shop)
-      shop2 = FactoryBot.create(:shop, name: "よそみシーズン2", phone: "06-7770-2222")
-      shop3 = FactoryBot.create(:shop, name: "ガネーシュN", phone: "06-7771-2222")
-      shop4 = FactoryBot.create(:shop, name: "ガネーシュM", phone: "06-7772-2222")
+      shop1 = create(:shop)
+      shop2 = create(:shop, name: "よそみシーズン2", phone: "06-7770-2222")
+      shop3 = create(:shop, name: "ガネーシュN", phone: "06-7771-2222")
+      shop4 = create(:shop, name: "ガネーシュM", phone: "06-7772-2222")
 
       expect(Shop.search("ガネーシュ")).to_not include(shop1, shop2)
       expect(Shop.search("ガネーシュ")).to include(shop3, shop4)

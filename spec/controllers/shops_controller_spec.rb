@@ -11,7 +11,7 @@ describe ShopsController do
 
   describe "GET #show" do
     it "returns http success" do
-      shop = FactoryBot.create(:shop)
+      shop = create(:shop)
       get :show, params: {id: shop.id}
       expect(response).to have_http_status(:success)
     end

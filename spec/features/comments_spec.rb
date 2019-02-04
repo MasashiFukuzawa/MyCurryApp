@@ -9,9 +9,9 @@ feature "Comments" do
     visit root_path
 
     click_link "店舗一覧"
-    click_link "美味しいカレー屋さん"
+    click_link "美味しいカレー屋さん", match: :first
     fill_in "コメント", with: "テスト"
-    # attach_file '画像', "#{Rails.root}/spec/files/test.png"
+    # attach_file("#comment_image", "#{Rails.root}/spec/files/test.png")
     click_button "コメントを投稿"
     expect(page).to have_content "コメントが投稿されました。"
     expect(page).to have_content "テスト"
@@ -31,7 +31,7 @@ feature "Comments" do
     visit root_path
 
     click_link "店舗一覧"
-    click_link "辛めのカレー屋さん"
+    click_link "辛めのカレー屋さん", match: :first
     click_button "コメントを投稿"
     expect(page).to have_content "投稿失敗しました。"
     expect(page).to_not have_content "テスト"

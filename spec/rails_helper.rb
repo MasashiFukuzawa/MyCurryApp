@@ -39,9 +39,12 @@ RSpec.configure do |config|
   Capybara.default_max_wait_time = 15
   config.include Capybara::DSL
   config.include Warden::Test::Helpers
+
   require 'database_cleaner'
+  
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do

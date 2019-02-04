@@ -11,6 +11,6 @@ html lang="ja"
     = render 'layouts/header'
     main
       - flash.each do |message_type, message|
-        div class="alert alert-#{message_type} text-center" = message
+        div class="alert alert-#{bootstrap_class_for(message_type)} text-center" = message
       = yield
       = render 'layouts/footer'

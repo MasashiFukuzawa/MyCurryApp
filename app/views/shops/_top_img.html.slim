@@ -1,17 +1,7 @@
 .container.my-3
-  h1.py-3.pl-3 #{@shop.name}（いいね！ #{@shop.likes.size}件, コメント #{@shop.comments.size}件）
-  #top-wrapper.bg-dark.my-3
-    #main_visual.carousel.slide data-ride="carousel"
-      .carousel-inner
-        .carousel-item.active
-          = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: @shop.name)
-        .carousel-item
-          = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: @shop.name)
-        .carousel-item
-          = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: @shop.name)
-        .carousel-item
-          = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: @shop.name)
-        a.carousel-control-prev href="#main_visual" data-slide="prev"
-          span.carousel-control-prev-icon
-        a.carousel-control-next href="#main_visual" data-slide="next"
-          span.carousel-control-next-icon
+  h1.text-center.py-3.pl-3 #{@shop.name}
+.my-3
+  - if @shop.image_data
+    = image_tag(@shop.image[:medium].url, class: "my-3 img-fluid d-block mx-auto w-50")
+  - else 
+    = image_tag("sample", class: "my-3 img-fluid d-block mx-auto w-50")

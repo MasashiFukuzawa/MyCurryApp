@@ -10,8 +10,8 @@ describe User do
     it {validate_length_of :password}
     
     it "is invalid with a duplicate email address" do
-      user = FactoryBot.create(:user, email: "curry@example.com")
-      other_user = FactoryBot.build(:user, email: "curry@example.com")
+      user = create(:user, email: "curry@example.com")
+      other_user = build(:user, email: "curry@example.com")
       other_user.valid?
       expect(other_user.errors[:email]).to include("はすでに存在します")
     end

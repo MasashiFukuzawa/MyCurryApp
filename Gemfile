@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'mysql2'
   gem 'dotenv-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 4.11'
   gem 'rspec-rails'
   gem 'pry-rails'
 end
@@ -50,6 +50,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :production do

@@ -1,34 +1,36 @@
 .container.my-3
-  = link_to "今週のオススメ", shop_url(Shop.find(1))
-  #top-wrapper.bg-dark.my-3
-    #main_visual.carousel.slide data-ride="carousel"
-      ol.carousel-indicators
-        li.active data-target="#main_visual" data-slide-to="0"
-        li data-target="#main_visual" data-slide-to="1"
-        li data-target="#main_visual" data-slide-to="2"
-        li data-target="#main_visual" data-slide-to="3"
+  - if Shop.first
+    = link_to "今週のオススメ", shop_url(Shop.find(1))
+    #top-wrapper.bg-dark.my-3
+      #main_visual.carousel.slide data-ride="carousel"
+        ol.carousel-indicators
+          li.active data-target="#main_visual" data-slide-to="0"
+          li data-target="#main_visual" data-slide-to="1"
+          li data-target="#main_visual" data-slide-to="2"
+          li data-target="#main_visual" data-slide-to="3"
       .carousel-inner
-        = link_to shop_url(Shop.find(1)) do
-          .carousel-item.active
-            = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
-          .carousel-caption.d-none.d-md-block
-            h2 定食堂 金剛石
-          .carousel-item
-            = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
-          .carousel-caption.d-none.d-md-block
-            h2 定食堂 金剛石
-          .carousel-item
-            = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
-          .carousel-caption.d-none.d-md-block
-            h2 定食堂 金剛石
-          .carousel-item
-            = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
-          .carousel-caption.d-none.d-md-block
-            h2 定食堂 金剛石
-        a.carousel-control-prev href="#main_visual" data-slide="prev"
-          span.carousel-control-prev-icon
-        a.carousel-control-next href="#main_visual" data-slide="next"
-          span.carousel-control-next-icon
+        - if Shop.first
+          = link_to shop_url(Shop.find(1)) do
+            .carousel-item.active
+              = image_tag("kongoseki01", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
+            .carousel-caption.d-none.d-md-block
+              h2 定食堂 金剛石
+            .carousel-item
+              = image_tag("kongoseki02", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
+            .carousel-caption.d-none.d-md-block
+              h2 定食堂 金剛石
+            .carousel-item
+              = image_tag("kongoseki03", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
+            .carousel-caption.d-none.d-md-block
+              h2 定食堂 金剛石
+            .carousel-item
+              = image_tag("kongoseki04", class: "img-fluid mx-auto d-block", alt: "今週のオススメ")
+            .carousel-caption.d-none.d-md-block
+              h2 定食堂 金剛石
+          a.carousel-control-prev href="#main_visual" data-slide="prev"
+            span.carousel-control-prev-icon
+          a.carousel-control-next href="#main_visual" data-slide="next"
+            span.carousel-control-next-icon
 .container.mt-5.mb-2
   .container.d-block.mx-auto
     .row

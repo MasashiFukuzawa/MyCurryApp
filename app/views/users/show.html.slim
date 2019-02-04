@@ -18,7 +18,7 @@ h2.mt-3.mb-5.text-center ユーザー情報
       tr
         th.w-25 自己紹介文
         td.w-50 = simple_format(@user.description)
-- if @user.id == current_user.id
+- if user_signed_in? && @user.id == current_user.id
   = link_to "ユーザー情報を編集する", edit_user_registration_url, class: "btn btn-info btn my-3 d-block mx-auto w-50"
 - if @user.likes.any?
   = render 'likes_index'

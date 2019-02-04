@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 50}
   validates :email, presence: true, uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: 4}, allow_nil: true
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

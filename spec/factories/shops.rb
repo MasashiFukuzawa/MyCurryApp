@@ -5,6 +5,5 @@ FactoryBot.define do
     address "カルダモン1丁目1番1号"
     area "クミン"
     station "ターメリック駅"
-    google_map_url "/embed?pb="
   end
 end

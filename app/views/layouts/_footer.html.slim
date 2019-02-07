@@ -6,6 +6,12 @@ footer.py-1.bg-dark
       li.navbar-item = link_to "このサイトについて", concept_url, class: "nav-link text-light"
       li.navbar-item = link_to "よくある質問", help_url, class: "nav-link text-light"
       li.navbar-item = mail_to 'm.fukuzawa0316@gmail.com', "お問い合わせ", subject: 'Spiceful daysに関する問い合わせ', class: "nav-link text-light"
+      - if user_signed_in? && current_user.admin_flg?
+        li.navbar-item.dropdown
+          = link_to "管理メニュー", '#', 'data-toggle': 'dropdown', class: "nav-link dropdown-toggle text-light"
+          .dropdown-menu
+            = link_to "新規店舗の登録", new_shop_url, class: "dropdown-item"
+            = link_to "管理者ページ", rails_admin_url, class: "dropdown-item"
     p
       small.text-light
         | Copyright &copy; Masashi Fukuzawa, All Rights Reserved.

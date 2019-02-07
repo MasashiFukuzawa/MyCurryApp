@@ -1,0 +1,53 @@
+= provide(:title, "店舗編集")
+h2.mt-3.mb-2.text-center 店舗編集
+.row
+  .col-md-6.col-md-offset-3.mx-auto.d-block
+    = form_for @shop do |f|
+      = f.label :name
+      span.badge.badge-warning.ml-1.px-2.py-1 必須
+      = f.text_field :name, placeholder: "例：Spiceful days", class: "form-control mb-3"
+      = f.label :address
+      span.badge.badge-warning.ml-1.px-2.py-1 必須
+      = f.text_field :address, placeholder: "例：東京都千代田区丸の内１丁目", class: "form-control mb-3"
+      = f.label :area
+      span.badge.badge-warning.ml-1.px-2.py-1 必須
+      = f.text_field :area, placeholder: "例：東京", class: "form-control mb-3"
+      = f.label :station
+      span.badge.badge-warning.ml-1.px-2.py-1 必須
+      = f.text_field :station, placeholder: "例：東京駅", class: "form-control mb-3"
+      = f.label :phone
+      span.badge.badge-warning.ml-1.px-2.py-1 必須
+      = f.text_field :phone, placeholder: "例：03-1234-5678", class: "form-control mb-3"
+      = f.label :image_data
+      .mb-3
+        - if @shop.image_data
+          = image_tag @shop.image[:medium].url, class: "img-fluid w-75"
+        - else
+          = image_tag "sample", class: "img-fluid w-75"
+      = f.hidden_field :image, value: @shop.cached_image_data
+      = f.file_field :image, class:"rounded d-block mb-3"
+      = f.label :url
+      = f.text_field :url, placeholder: "例：https://www.spicefuldays.com", class: "form-control mb-3"
+      = f.label :twitter_url
+      span.text-danger （https://twitter.com以降のURLをご記入下さい）
+      = f.text_field :twitter_url, placeholder: "例：/spiceful_days", class: "form-control mb-3"
+      = f.label :facebook_url
+      span.text-danger （https://www.facebook.com以降のURLをご記入下さい）
+      = f.text_field :facebook_url, placeholder: "例：/pages/spiceful_days", class: "form-control mb-3"
+      = f.label :tabelog_url
+      span.text-danger （https://tabelog.com以降のURLをご記入下さい）
+      = f.text_field :tabelog_url, placeholder: "例：/tokyo/spiceful_days", class: "form-control mb-3"
+      = f.label :google_map_url
+      span.text-danger （https://www.google.com/maps以降のURLをご記入下さい）
+      = f.text_field :google_map_url, placeholder: "例：/embed?pb=...", class: "form-control mb-3"
+      = f.label :business_hour
+      = f.text_area :business_hour, placeholder: "例：月〜土：11:30～16:00\n※売切れ次第終了", class: "form-control mb-3 pb-5"
+      = f.label :holiday
+      = f.text_field :holiday, placeholder: "例：日曜日・祝日", class: "form-control mb-3"
+      = f.label :access
+      = f.text_area :access, placeholder: "例：東京駅から徒歩1分（100m）、駐車場なし", class: "form-control mb-3 pb-5"
+      = f.submit "店舗情報を編集する", class: "btn btn-info btn-lg mt-3 w-100 mb-3"
+    .mb-2.text-center
+      = link_to "店舗情報を削除", shop_path(@shop), data: {confirm: "店舗を削除するといいね！やコメントが全て消去されます。\n本当によろしいですか？"}, method: :delete
+    .mb-4.text-center
+      = link_to "戻る", :back

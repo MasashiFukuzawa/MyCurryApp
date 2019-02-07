@@ -2,9 +2,9 @@
   - @shops.each do |shop|
     .col-md-4.mb-3
       .card.mb-3
-        = link_to shop_url(shop) do
+        = link_to shop_url(shop), class: "shop-card-link" do
           - if shop.image_data
-            = image_tag(shop.image[:medium].url, class: "img-fluid mx-auto d-block")
+            = image_tag(shop.image[:medium].url, class: "img-fluid mx-auto d-block shop-thumbnail")
           - else
             = image_tag("sample", class: "img-fluid mx-auto d-block", alt: shop.name)
         .card-body.d-flex.justify-content-between

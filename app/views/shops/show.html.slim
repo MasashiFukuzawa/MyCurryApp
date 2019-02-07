@@ -4,3 +4,5 @@
 = render 'comments'
 = render 'comments/new'
 = render 'info'
+- if user_signed_in? && current_user.admin_flg?
+	.mb-5.text-center = link_to '店舗を編集する', edit_shop_url(@shop)

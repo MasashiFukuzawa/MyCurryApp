@@ -8,7 +8,6 @@ describe Shop do
     it {is_expected.to validate_presence_of :address}
     it {is_expected.to validate_presence_of :area}
     it {is_expected.to validate_presence_of :station}
-    it {is_expected.to validate_presence_of :google_map_url}
     it {validate_length_of :name}
     it {validate_length_of :address}
     it {validate_length_of :area}

@@ -71,6 +71,21 @@ ja:
         remember_me: 次回から自動的にログイン
         description: 自己紹介文
         image_data: 画像
+      shop:
+        name: 店名
+        phone: 電話番号
+        address: 住所
+        area: エリア
+        station: 最寄り駅
+        image_data: 画像
+        url: 店舗ホームページ
+        twitter_url: Twitter
+        facebook_url: Facebook
+        tabelog_url: 食べログ
+        google_map_url: Googleマップ
+        business_hour: 営業時間
+        holiday: 定休日
+        access: アクセス情報
   views:
     pagination:
       previous: "« 前"

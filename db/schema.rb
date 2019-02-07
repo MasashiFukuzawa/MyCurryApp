@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_01_084935) do
     t.string "twitter_url"
     t.string "facebook_url"
     t.string "tabelog_url"
-    t.string "google_map_url", null: false
+    t.string "google_map_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "business_hour"

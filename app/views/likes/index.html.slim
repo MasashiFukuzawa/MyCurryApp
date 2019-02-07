@@ -5,9 +5,9 @@
       - @likes.each do |like|
         .col-md-4.mb-3
           .card.mb-3
-            = link_to shop_url(like.shop_id) do
+            = link_to shop_url(like.shop_id), class: "shop-card-link" do
               - if like.shop.image_data
-                = image_tag(like.shop.image_url, class: "img-fluid mx-auto d-block")
+                = image_tag(like.shop.image[:medium].url, class: "img-fluid mx-auto d-block shop-thumbnail")
               - else 
                 = image_tag("sample", class: "img-fluid mx-auto d-block", alt: like.shop.name)
             .card-body.d-flex.justify-content-between

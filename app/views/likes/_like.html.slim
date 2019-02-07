@@ -1,7 +1,7 @@
 - if user_signed_in?
   .text-center
     - unless @shop.like?(current_user)
-      a#link-mark.btn.btn-primary.btn-lg.mt-2.w-50.text-white data-shop_id="#{@shop.id}" いいね！
+      a#link-mark.btn.btn-primary.btn-lg.mt-2.w-25.text-white data-shop_id="#{@shop.id}" いいね！
     - else
-      a#link-mark.btn.btn-secondary.btn-lg.mt-2.w-50.text-white data-shop_id="#{@shop.id}" いいね！を取り消す
+      a#link-mark.btn.btn-secondary.btn-lg.mt-2.w-25.text-white data-shop_id="#{@shop.id}" いいね！を取り消す
   = javascript_include_tag('like')

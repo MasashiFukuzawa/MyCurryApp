@@ -22,7 +22,7 @@ class Shop < ApplicationRecord
 
   def self.search(search)
     if search
-      where(['name LIKE ? or phone LIKE ? or address LIKE ? or area LIKE ? or station LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      where('name LIKE :search or phone LIKE :search or address LIKE :search or area LIKE :search or station LIKE :search', {search: "%#{search}%"})
     else
       all
     end

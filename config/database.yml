@@ -17,4 +17,4 @@ test:
 production:
   <<: *default
   database: MyCurryApp_production
-  url: <%= ENV['DATABASE_URL']>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -122,7 +122,7 @@ end
   
 if User.count < 1
   User.create!(name:  "admin",
-  email: "m.fukuzawa0316@gmail.com",
+  email: "m.fukuzawa@gmail.com",
   description: "管理者です。",
   password:              "admin_pass",
   password_confirmation: "admin_pass",

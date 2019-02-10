@@ -15,6 +15,6 @@ test:
   database: MyCurryApp_test
 
 production:
-  <<: *default
+  adapter: postgresql
   database: MyCurryApp_production
   url: <%= ENV['DATABASE_URL'] %>

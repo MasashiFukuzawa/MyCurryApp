@@ -10,7 +10,7 @@ h2.mt-3.mb-5.text-center ユーザー情報
         th.w-25 プロフィール画像
         td.w-50
           - if @user.image_data
-            = image_tag(@user.image[:medium].url, class: "my-3 img-fluid")
+            = image_tag(@user.image[:medium].url, size: '200x200', class: "my-3 img-fluid")
           - elsif @user.twitter_image
             = image_tag(@user.twitter_image.gsub(/_normal/, ''), size: '200x200', class: "my-3")
           - else 

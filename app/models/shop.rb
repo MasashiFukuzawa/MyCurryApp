@@ -13,8 +13,7 @@ class Shop < ApplicationRecord
   validates :address, presence: true, length: {maximum: 100}
   validates :area, :station, presence: true, length: {maximum: 20}
 
-  scope :like_num, -> {order(likes_count: :desc)}
-  scope :comment_num, -> {order(comments_count: :desc)}
+  scope :assess_num, -> {order(likes_count: :desc, comments_count: :desc)}
 
   def like?(user)
     like_users.include?(user)

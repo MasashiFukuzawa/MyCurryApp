@@ -27,6 +27,8 @@
 /config/master.key
 
 # 追加分
-/vandor/bundle
+/config/master.key
+/vendor/bundle
+/public/images/uploads
 .vscode
 .env

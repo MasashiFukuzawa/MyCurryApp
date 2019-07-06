@@ -17,7 +17,7 @@ https://tranquil-ravine-25204.herokuapp.com/
 - 食べログ等でカレーを検索すると洋風カレーやチェーン店などもヒットしてしまい、目的の日本流スパイスカレーをピンポイントで探すのに苦労した経験があった 
 
 ## 重視した点
-- 1作品目(https://github.com/MasashiFukuzawa/BookshelfApp)で取り扱わなかった技術要素を貪欲に導入
+- [1作品目](https://github.com/MasashiFukuzawa/BookshelfApp)で取り扱わなかった技術要素を貪欲に導入
   - RSpecを用いてテストを記述 
   - Deviseの使用 
   - DBにMySQLを使用

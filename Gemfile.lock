@@ -209,7 +209,6 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    pg (1.1.4)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
@@ -397,9 +396,8 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mini_magick
-  mysql2
+  mysql2 (~> 0.5.2)
   omniauth-twitter
-  pg
   poltergeist
   pry-rails
   puma (~> 3.11)

@@ -25,9 +25,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'mysql2', '~> 0.5.2'
 
 group :development, :test do
-  gem 'mysql2'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.11'
   gem 'rspec-rails'
@@ -52,10 +52,6 @@ group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'database_cleaner'
   gem 'poltergeist'
-end
-
-group :production do
-  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

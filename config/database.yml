@@ -16,5 +16,9 @@ test:
 
 production:
   adapter: postgresql
+  host: db
+  password:
+  pool: 5
   database: MyCurryApp_production
-  url: <%= ENV['DATABASE_URL'] %>
+  username: MyCurryApp
+  password: <%= ENV['MYCURRYAPP_DATABASE_PASSWORD'] %>

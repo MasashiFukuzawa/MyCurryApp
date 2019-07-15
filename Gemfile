@@ -10,7 +10,7 @@ gem 'rails_admin'
 gem 'faker'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
-gem 'bootstrap', '~> 4.1.3'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails', '~> 4.3'
 gem 'font-awesome-rails'
 gem "shrine"

@@ -32,3 +32,4 @@
 /public/images/uploads
 .vscode
 .env
+cloud_sql_proxy

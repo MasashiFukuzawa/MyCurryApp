@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.5-node-browsers
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -19,6 +19,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            gem install bundler -v 2.0.2
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:

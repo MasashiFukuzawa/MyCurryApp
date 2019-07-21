@@ -1,0 +1,4 @@
+.git
+.bundle
+tmp
+vendor/bundle

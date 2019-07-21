@@ -1,15 +1,11 @@
-※(2019.7.6)毎月Amazon S3の料金が地味に課金されていたため、一旦メンテナンスモードとしてアクセスできないようにしています。
+※(2019.7.21)Amazon S3の料金が地味に課金されていたため、一旦S3にアップロードできないようにしてます。
 
 # MyCurryAppについて
 
 ## URL
-https://tranquil-ravine-25204.herokuapp.com/
+https://mycurryapp-qyobofecda-uc.a.run.app/
 
-## 管理ユーザー情報
-- メールアドレス: m.fukuzawa@gmail.com
-- パスワード: admin_pass
-
-## ## コンセプト
+## コンセプト
 - 最近ブームの日本流スパイスカレーを効率よく探し、食の記録や感想の共有が可能 
 
 ## 制作のきっかけ
@@ -27,12 +23,12 @@ https://tranquil-ravine-25204.herokuapp.com/
   - 管理者画面の作成
 
 ## 技術内容
-- 言語:Ruby
-- テンプレートエンジン:Slim
-- フレームワーク:Ruby on Rails
-- DB:MySQL (開発環境), PostgreSQL (本番環境)
-- バージョン管理:Git
-- インフラ:Heroku
+- 言語: Ruby2.5.5
+- テンプレートエンジン: Slim
+- フレームワーク: Ruby on Rails5.2.3
+- DB: MySQL5.7
+- バージョン管理: Git
+- インフラ: CloudRun (GCP)
 
 ## 実装した機能等の概要
 - 店舗一覧表示機能

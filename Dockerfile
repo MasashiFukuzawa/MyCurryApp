@@ -13,3 +13,10 @@ RUN bundle install
 
 WORKDIR /MyCurryApp
 COPY . /MyCurryApp
+
+COPY start.sh /usr/bin/
+RUN chmod +x /usr/bin/start.sh
+ENTRYPOINT ["start.sh"]
+EXPOSE 3000
+
+CMD ["bin/start"]

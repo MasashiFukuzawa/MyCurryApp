@@ -33,11 +33,3 @@ jobs:
       - run:
           name: run tests
           command: bundle exec rspec
-workflows:
-  version: 2
-  rubocop_rspec:
-    jobs:
-      - rubocop
-      # - rspec:
-      #     requires:
-      #       - rubocop

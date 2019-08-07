@@ -21,14 +21,16 @@ https://mycurryapp-qyobofecda-uc.a.run.app/
   - 検索機能の実装 
   - いいね機能の実装
   - 管理者画面の作成
+  - Dockerを用いた開発
+  - インフラにCloudRunを採用（コンテナ×サーバーレス）
 
 ## 技術内容
 - 言語: Ruby2.5.5
 - テンプレートエンジン: Slim
 - フレームワーク: Ruby on Rails5.2.3
-- DB: MySQL5.7
+- DB: MySQL5.7 / CloudSQL for MySQL (GCP)
+- インフラ: Docker / CloudRun (GCP)
 - バージョン管理: Git
-- インフラ: CloudRun (GCP)
 
 ## 実装した機能等の概要
 - 店舗一覧表示機能

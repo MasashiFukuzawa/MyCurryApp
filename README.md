@@ -22,12 +22,13 @@ https://mycurryapp-qyobofecda-uc.a.run.app/
   - 検索機能の実装 
   - いいね機能の実装
   - 管理者画面の作成
+  - Dockerを用いた開発
+  - インフラにCloudRunを採用（コンテナ×サーバーレス）
 
 ## 技術スタック
 - 言語: Ruby2.5.5
 - フレームワーク: Ruby on Rails5.2.3
-- テンプレートエンジン: Slim
-- DB: MySQL5.7 / CloudSQL for MySQL
+- DB: MySQL5.7 / CloudSQL for MySQL (GCP)
 - インフラ: Docker / CloudRun (GCP)
 - バージョン管理: Git
 

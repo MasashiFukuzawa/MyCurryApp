@@ -1,4 +1,5 @@
-※(2019.7.21)Amazon S3の料金が地味に課金されていたため、一旦S3にアップロードできないようにしてます。
+※(2019.7.21) 一旦S3にアップロードできないようにしてます。
+※(2019.8.18) Twitterログインに不具合が起きているため対応中です。
 
 # MyCurryAppについて
 
@@ -22,13 +23,13 @@ https://mycurryapp-qyobofecda-uc.a.run.app/
   - いいね機能の実装
   - 管理者画面の作成
 
-## 技術内容
+## 技術スタック
 - 言語: Ruby2.5.5
-- テンプレートエンジン: Slim
 - フレームワーク: Ruby on Rails5.2.3
-- DB: MySQL5.7
+- テンプレートエンジン: Slim
+- DB: MySQL5.7 / CloudSQL for MySQL
+- インフラ: Docker / CloudRun (GCP)
 - バージョン管理: Git
-- インフラ: CloudRun (GCP)
 
 ## 実装した機能等の概要
 - 店舗一覧表示機能

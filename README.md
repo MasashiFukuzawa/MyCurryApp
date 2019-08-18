@@ -4,7 +4,7 @@
 # MyCurryAppについて
 
 ## URL
-https://mycurryapp-qyobofecda-uc.a.run.app/
+https://mycurryapp-qyobofecda-an.a.run.app/
 
 ## コンセプト
 - 最近ブームの日本流スパイスカレーを効率よく探し、食の記録や感想の共有が可能 
